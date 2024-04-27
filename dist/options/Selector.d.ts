@@ -5,6 +5,7 @@ import OptionContext from './OptionContext';
 export interface Props {
     option: Option;
     defaultOption: React.ComponentClass | string;
+    children: JSX.Element[];
 }
 export default class Selector extends React.Component<Props> {
     static contextTypes: {

@@ -1,9 +1,11 @@
 import * as React from 'react';
-export default class LongHairDreads extends React.Component {
+export default class LongHairDreads extends React.Component<{
+    children?: JSX.Element | JSX.Element[];
+}> {
     static optionValue: string;
     private mask1;
     private mask2;
     private path1;
     private path2;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

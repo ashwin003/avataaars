@@ -4,7 +4,7 @@ import { uniqueId } from 'lodash'
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 
-export default class Turban extends React.Component {
+export default class Turban extends React.Component<{ children?: JSX.Element | JSX.Element[] }> {
   static optionValue = 'Turban'
 
   private filter1 = uniqueId('react-filter-')
@@ -15,7 +15,7 @@ export default class Turban extends React.Component {
   private path2 = uniqueId('react-path-')
   private path3 = uniqueId('react-path-')
 
-  render () {
+  render() {
     const { filter1, mask1, mask2, mask3, path1, path2, path3 } = this
     return (
       <g id='Top' strokeWidth='1' fillRule='evenodd'>

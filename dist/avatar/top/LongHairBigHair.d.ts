@@ -1,5 +1,7 @@
 import * as React from 'react';
-export default class LongHairBigHair extends React.Component {
+export default class LongHairBigHair extends React.Component<{
+    children?: JSX.Element | JSX.Element[];
+}> {
     static optionValue: string;
     private mask1;
     private mask2;
@@ -7,5 +9,5 @@ export default class LongHairBigHair extends React.Component {
     private path1;
     private path2;
     private path3;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
