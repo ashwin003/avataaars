@@ -1,12 +1,8 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { OptionContext } from './options';
-export { default as Avatar, AvatarStyle } from './avatar';
-export { Piece } from './Piece';
-export { Option, OptionContext, allOptions } from './options';
 import { AvatarProps } from './AvatarProps';
-export { AvatarProps } from './AvatarProps';
-export default class AvatarComponent extends React.Component<AvatarProps> {
+export declare class Piece extends React.Component<AvatarProps> {
     static childContextTypes: {
         optionContext: PropTypes.Requireable<OptionContext>;
     };

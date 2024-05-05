@@ -5,9 +5,11 @@ import Avatar, { AvatarStyle } from './avatar'
 import { OptionContext, allOptions } from './options'
 
 export { default as Avatar, AvatarStyle } from './avatar'
+export { Piece } from './Piece'
 export { Option, OptionContext, allOptions } from './options'
 
 import { AvatarProps } from './AvatarProps'
+export { AvatarProps } from './AvatarProps'
 
 export default class AvatarComponent extends React.Component<AvatarProps> {
   static childContextTypes = {
