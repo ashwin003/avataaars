@@ -18,6 +18,7 @@
     "react": "^18.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.1",
     "@types/react": "^18.3.1",
     "import-sort-style-renke": "^6.0.0",
     "tslint": "^6.1.3",

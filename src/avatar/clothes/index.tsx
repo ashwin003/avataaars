@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import BlazerShirt from './BlazerShirt'
 import BlazerSweater from './BlazerSweater'
@@ -9,22 +9,21 @@ import Overall from './Overall'
 import ShirtCrewNeck from './ShirtCrewNeck'
 import ShirtScoopNeck from './ShirtScoopNeck'
 import ShirtVNeck from './ShirtVNeck'
-import { ClotheOption, Selector } from '../../options'
+import { Selector } from '../../options'
+import { ClotheProps } from './type'
 
-export default class Clothes extends React.Component {
-  render () {
-    return (
-      <Selector option={ClotheOption} defaultOption={BlazerShirt}>
-        <BlazerShirt />
-        <BlazerSweater />
-        <CollarSweater />
-        <GraphicShirt />
-        <Hoodie />
-        <Overall />
-        <ShirtCrewNeck />
-        <ShirtScoopNeck />
-        <ShirtVNeck />
-      </Selector>
-    )
-  }
-}
+const Clothes = ({ type, color, graphicType }: ClotheProps) => {
+  return <Selector defaultKey='BlazerShirt' selectedKey={type}>
+    <BlazerShirt key='BlazerShirt' />
+    <BlazerSweater key='BlazerSweater' />
+    <CollarSweater key='CollarSweater' color={color} />
+    <GraphicShirt key='GraphicShirt' color={color} type={graphicType} />
+    <Hoodie key='Hoodie' color={color} />
+    <Overall key='Overall' color={color} />
+    <ShirtCrewNeck key='ShirtCrewNeck' color={color} />
+    <ShirtScoopNeck key='ShirtScoopNeck' color={color} />
+    <ShirtVNeck key='ShirtVNeck' color={color} />
+  </Selector>;
+};
+
+export default Clothes;

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import Close from './Close'
 import Cry from './Cry'
@@ -12,25 +12,24 @@ import Squint from './Squint'
 import Surprised from './Surprised'
 import Wink from './Wink'
 import WinkWacky from './WinkWacky'
-import { EyesOption, Selector } from '../../../options'
+import { Selector } from '../../../options'
+import { EyeProps } from './type'
 
-export default class Eyes extends React.Component {
-  render () {
-    return (
-      <Selector defaultOption={Default} option={EyesOption}>
-        <Close />
-        <Cry />
-        <Default />
-        <Dizzy />
-        <EyeRoll />
-        <Happy />
-        <Hearts />
-        <Side />
-        <Squint />
-        <Surprised />
-        <Wink />
-        <WinkWacky />
-      </Selector>
-    )
-  }
-}
+const Eyes = ({ type }: EyeProps) => {
+  return <Selector defaultKey='Default' selectedKey={type}>
+    <Close key='Close' />
+    <Cry key='Cry' />
+    <Default key='Default' />
+    <Dizzy key='Dizzy' />
+    <EyeRoll key='EyeRoll' />
+    <Happy key='Happy' />
+    <Hearts key='Hearts' />
+    <Side key='Side' />
+    <Squint key='Squint' />
+    <Surprised key='Surprised' />
+    <Wink key='Wink' />
+    <WinkWacky key='WinkWacky' />
+  </Selector>;
+};
+
+export default Eyes;
