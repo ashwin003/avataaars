@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 const EyeRoll = () => {
   return <g id='Eyes/Eye-Roll-🙄' transform='translate(0.000000, 8.000000)'>
