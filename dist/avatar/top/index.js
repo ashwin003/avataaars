@@ -1,19 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var Eyepatch_1 = require("./Eyepatch");
@@ -51,51 +36,46 @@ var WinterHat1_1 = require("./WinterHat1");
 var WinterHat2_1 = require("./WinterHat2");
 var WinterHat3_1 = require("./WinterHat3");
 var WinterHat4_1 = require("./WinterHat4");
-var options_1 = require("../../options");
-var Top = /** @class */ (function (_super) {
-    __extends(Top, _super);
-    function Top() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Top.prototype.render = function () {
-        var children = this.props.children;
-        return (React.createElement(options_1.Selector, { defaultOption: LongHairStraight_1.default, option: options_1.TopOption },
-            React.createElement(NoHair_1.default, null, children),
-            React.createElement(Eyepatch_1.default, null, children),
-            React.createElement(Hat_1.default, null, children),
-            React.createElement(Hijab_1.default, null, children),
-            React.createElement(Turban_1.default, null, children),
-            React.createElement(WinterHat1_1.default, null, children),
-            React.createElement(WinterHat2_1.default, null, children),
-            React.createElement(WinterHat3_1.default, null, children),
-            React.createElement(WinterHat4_1.default, null, children),
-            React.createElement(LongHairBigHair_1.default, null, children),
-            React.createElement(LongHairBob_1.default, null, children),
-            React.createElement(LongHairBun_1.default, null, children),
-            React.createElement(LongHairCurly_1.default, null, children),
-            React.createElement(LongHairCurvy_1.default, null, children),
-            React.createElement(LongHairDreads_1.default, null, children),
-            React.createElement(LongHairFrida_1.default, null, children),
-            React.createElement(LongHairFro_1.default, null, children),
-            React.createElement(LongHairFroBand_1.default, null, children),
-            React.createElement(LongHairNotTooLong_1.default, null, children),
-            React.createElement(LongHairShavedSides_1.default, null, children),
-            React.createElement(LongHairMiaWallace_1.default, null, children),
-            React.createElement(LongHairStraight_1.default, null, children),
-            React.createElement(LongHairStraight2_1.default, null, children),
-            React.createElement(LongHairStraightStrand_1.default, null, children),
-            React.createElement(ShortHairDreads01_1.default, null, children),
-            React.createElement(ShortHairDreads02_1.default, null, children),
-            React.createElement(ShortHairFrizzle_1.default, null, children),
-            React.createElement(ShortHairShaggyMullet_1.default, null, children),
-            React.createElement(ShortHairShortCurly_1.default, null, children),
-            React.createElement(ShortHairShortFlat_1.default, null, children),
-            React.createElement(ShortHairShortRound_1.default, null, children),
-            React.createElement(ShortHairShortWaved_1.default, null, children),
-            React.createElement(ShortHairSides_1.default, null, children),
-            React.createElement(ShortHairTheCaesar_1.default, null, children),
-            React.createElement(ShortHairTheCaesarSidePart_1.default, null, children)));
-    };
-    return Top;
-}(React.Component));
+var Top = function (_a) {
+    var children = _a.children, type = _a.type, facialHairColor = _a.facialHairColor, facialHairType = _a.facialHairType;
+    if (!type)
+        return React.createElement(LongHairStraight_1.default, { key: 'LongHairStraight' }, children);
+    return {
+        'NoHair': React.createElement(NoHair_1.default, { key: 'NoHair', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'Eyepatch': React.createElement(Eyepatch_1.default, { key: 'Eyepatch' }),
+        'Hat': React.createElement(Hat_1.default, { key: 'Hat', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'Hijab': React.createElement(Hijab_1.default, { key: 'Hijab', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'Turban': React.createElement(Turban_1.default, { key: 'Turban', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'WinterHat1': React.createElement(WinterHat1_1.default, { key: 'WinterHat1', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'WinterHat2': React.createElement(WinterHat2_1.default, { key: 'WinterHat2', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'WinterHat3': React.createElement(WinterHat3_1.default, { key: 'WinterHat3', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'WinterHat4': React.createElement(WinterHat4_1.default, { key: 'WinterHat4', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairBigHair': React.createElement(LongHairBigHair_1.default, { key: 'LongHairBigHair', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairBob': React.createElement(LongHairBob_1.default, { key: 'LongHairBob', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairBun': React.createElement(LongHairBun_1.default, { key: 'LongHairBun', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairCurly': React.createElement(LongHairCurly_1.default, { key: 'LongHairCurly', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairCurvy': React.createElement(LongHairCurvy_1.default, { key: 'LongHairCurvy', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairDreads': React.createElement(LongHairDreads_1.default, { key: 'LongHairDreads', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairFrida': React.createElement(LongHairFrida_1.default, { key: 'LongHairFrida', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairFro': React.createElement(LongHairFro_1.default, { key: 'LongHairFro', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairFroBand': React.createElement(LongHairFroBand_1.default, { key: 'LongHairFroBand', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairNotTooLong': React.createElement(LongHairNotTooLong_1.default, { key: 'LongHairNotTooLong', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairShavedSides': React.createElement(LongHairShavedSides_1.default, { key: 'LongHairShavedSides', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairMiaWallace': React.createElement(LongHairMiaWallace_1.default, { key: 'LongHairMiaWallace', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairStraight': React.createElement(LongHairStraight_1.default, { key: 'LongHairStraight', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairStraight2': React.createElement(LongHairStraight2_1.default, { key: 'LongHairStraight2', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'LongHairStraightStrand': React.createElement(LongHairStraightStrand_1.default, { key: 'LongHairStraightStrand', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairDreads01': React.createElement(ShortHairDreads01_1.default, { key: 'ShortHairDreads01', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairDreads02': React.createElement(ShortHairDreads02_1.default, { key: 'ShortHairDreads02', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairFrizzle': React.createElement(ShortHairFrizzle_1.default, { key: 'ShortHairFrizzle', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairShaggyMullet': React.createElement(ShortHairShaggyMullet_1.default, { key: 'ShortHairShaggyMullet', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairShortCurly': React.createElement(ShortHairShortCurly_1.default, { key: 'ShortHairShortCurly', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairShortFlat': React.createElement(ShortHairShortFlat_1.default, { key: 'ShortHairShortFlat', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairShortRound': React.createElement(ShortHairShortRound_1.default, { key: 'ShortHairShortRound', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairShortWaved': React.createElement(ShortHairShortWaved_1.default, { key: 'ShortHairShortWaved', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairSides': React.createElement(ShortHairSides_1.default, { key: 'ShortHairSides', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairTheCaesar': React.createElement(ShortHairTheCaesar_1.default, { key: 'ShortHairTheCaesar', facialHairColor: facialHairColor, facialHairType: facialHairType }, children),
+        'ShortHairTheCaesarSidePart': React.createElement(ShortHairTheCaesarSidePart_1.default, { key: 'ShortHairTheCaesarSidePart', facialHairColor: facialHairColor, facialHairType: facialHairType }, children)
+    }[type];
+};
 exports.default = Top;

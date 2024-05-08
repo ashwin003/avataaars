@@ -1,4 +1,4 @@
 import * as React from 'react';
-export default class Eyes extends React.Component {
-    render(): React.JSX.Element;
-}
+import { EyeProps } from './type';
+declare const Eyes: ({ type }: EyeProps) => React.JSX.Element | undefined;
+export default Eyes;

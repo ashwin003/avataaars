@@ -1,7 +1,4 @@
 import * as React from 'react';
-export default class MoustacheFancy extends React.Component {
-    static optionValue: string;
-    private mask1;
-    private path1;
-    render(): React.JSX.Element;
-}
+import { FacialHairProps } from './type';
+declare const MoustacheFancy: React.FC<FacialHairProps>;
+export default MoustacheFancy;

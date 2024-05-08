@@ -1,14 +1,4 @@
 import * as React from 'react';
-export default class LongHairShavedSides extends React.Component<{
-    children?: JSX.Element | JSX.Element[];
-}> {
-    static optionValue: string;
-    private mask1;
-    private mask2;
-    private mask3;
-    private path1;
-    private path2;
-    private path3;
-    private path4;
-    render(): React.JSX.Element;
-}
+import { TopProps } from './top-props';
+declare const LongHairShavedSides: React.FC<TopProps>;
+export default LongHairShavedSides;

@@ -12,25 +12,24 @@ import Smile from './Smile'
 import Tongue from './Tongue'
 import Twinkle from './Twinkle'
 import Vomit from './Vomit'
-import { MouthOption, Selector } from '../../../options'
+import { MouthProps } from './type'
 
-export default class Mouth extends React.Component {
-  render () {
-    return (
-      <Selector defaultOption={Default} option={MouthOption}>
-        <Concerned />
-        <Default />
-        <Disbelief />
-        <Eating />
-        <Grimace />
-        <Sad />
-        <ScreamOpen />
-        <Serious />
-        <Smile />
-        <Tongue />
-        <Twinkle />
-        <Vomit />
-      </Selector>
-    )
-  }
-}
+const Mouth: React.FC<MouthProps> = ({ type }: MouthProps) => {
+  if (!type) return <Default key='Default' />;
+  return {
+    'Concerned': <Concerned key='Concerned' />,
+    'Default': <Default key='Default' />,
+    'Disbelief': <Disbelief key='Disbelief' />,
+    'Eating': <Eating key='Eating' />,
+    'Grimace': <Grimace key='Grimace' />,
+    'Sad': <Sad key='Sad' />,
+    'ScreamOpen': <ScreamOpen key='ScreamOpen' />,
+    'Serious': <Serious key='Serious' />,
+    'Smile': <Smile key='Smile' />,
+    'Tongue': <Tongue key='Tongue' />,
+    'Twinkle': <Twinkle key='Twinkle' />,
+    'Vomit': <Vomit key='Vomit' />
+  }[type];
+};
+
+export default Mouth;

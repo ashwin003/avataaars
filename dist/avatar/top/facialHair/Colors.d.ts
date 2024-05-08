@@ -1,7 +1,7 @@
 import * as React from 'react';
-export interface Props {
+export interface ColorProps {
     maskID: string;
+    color?: string;
 }
-export default class Colors extends React.Component<Props> {
-    render(): React.JSX.Element;
-}
+declare const Colors: React.FC<ColorProps>;
+export default Colors;

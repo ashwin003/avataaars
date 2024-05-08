@@ -1,7 +1,7 @@
 import * as React from 'react';
-export interface Props {
+export interface SkinProps {
     maskID: string;
+    color?: string;
 }
-export default class Skin extends React.Component<Props> {
-    render(): React.JSX.Element;
-}
+declare const Skin: React.FC<SkinProps>;
+export default Skin;

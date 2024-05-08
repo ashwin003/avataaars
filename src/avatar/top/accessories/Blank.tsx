@@ -1,9 +1,5 @@
-import * as React from 'react'
+const Blank = () => {
+  return null;
+};
 
-export default class Blank extends React.Component {
-  static optionValue = 'Blank'
-
-  render () {
-    return null
-  }
-}
+export default Blank;

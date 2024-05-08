@@ -1,11 +1,4 @@
 import * as React from 'react';
-export default class LongHairDreads extends React.Component<{
-    children?: JSX.Element | JSX.Element[];
-}> {
-    static optionValue: string;
-    private mask1;
-    private mask2;
-    private path1;
-    private path2;
-    render(): React.JSX.Element;
-}
+import { TopProps } from './top-props';
+declare const LongHairDreads: React.FC<TopProps>;
+export default LongHairDreads;

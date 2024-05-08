@@ -1,5 +1,3 @@
 import * as React from 'react';
-export default class EyeRoll extends React.Component {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
+declare const EyeRoll: () => React.JSX.Element;
+export default EyeRoll;

@@ -12,25 +12,24 @@ import SadConcernedNatural from './SadConcernedNatural'
 import UnibrowNatural from './UnibrowNatural'
 import UpDown from './UpDown'
 import UpDownNatural from './UpDownNatural'
-import { EyebrowOption, Selector } from '../../../options'
+import { EyebrowProps } from './type'
 
-export default class Eyebrow extends React.Component {
-  render () {
-    return (
-      <Selector defaultOption={Default} option={EyebrowOption}>
-        <Angry />
-        <AngryNatural />
-        <Default />
-        <DefaultNatural />
-        <FlatNatural />
-        <RaisedExcited />
-        <RaisedExcitedNatural />
-        <SadConcerned />
-        <SadConcernedNatural />
-        <UnibrowNatural />
-        <UpDown />
-        <UpDownNatural />
-      </Selector>
-    )
-  }
-}
+const Eyebrow: React.FC<EyebrowProps> = ({ type }: EyebrowProps) => {
+  if (!type) return <Default key='Default' />;
+  return {
+    'Angry': <Angry key='Angry' />,
+    'AngryNatural': <AngryNatural key='AngryNatural' />,
+    'Default': <Default key='Default' />,
+    'DefaultNatural': <DefaultNatural key='DefaultNatural' />,
+    'FlatNatural': <FlatNatural key='FlatNatural' />,
+    'RaisedExcited': <RaisedExcited key='RaisedExcited' />,
+    'RaisedExcitedNatural': <RaisedExcitedNatural key='RaisedExcitedNatural' />,
+    'SadConcerned': <SadConcerned key='SadConcerned' />,
+    'SadConcernedNatural': <SadConcernedNatural key='SadConcernedNatural' />,
+    'UnibrowNatural': <UnibrowNatural key='UnibrowNatural' />,
+    'UpDown': <UpDown key='UpDown' />,
+    'UpDownNatural': <UpDownNatural key='UpDownNatural' />
+  }[type];
+};
+
+export default Eyebrow;

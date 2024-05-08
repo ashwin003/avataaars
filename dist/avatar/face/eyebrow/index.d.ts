@@ -1,4 +1,4 @@
 import * as React from 'react';
-export default class Eyebrow extends React.Component {
-    render(): React.JSX.Element;
-}
+import { EyebrowProps } from './type';
+declare const Eyebrow: React.FC<EyebrowProps>;
+export default Eyebrow;

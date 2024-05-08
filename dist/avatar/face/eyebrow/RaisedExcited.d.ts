@@ -1,5 +1,3 @@
 import * as React from 'react';
-export default class RaisedExcited extends React.Component {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
+declare const RaisedExcited: () => React.JSX.Element;
+export default RaisedExcited;
