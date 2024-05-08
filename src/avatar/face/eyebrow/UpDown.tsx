@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const UpDown = () => {
   return <g id='Eyebrow/Outline/Up-Down' fillOpacity='0.599999964' fillRule='nonzero'>

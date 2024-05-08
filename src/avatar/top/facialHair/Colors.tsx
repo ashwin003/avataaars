@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { Selector } from '../../../options'
+import * as React from 'react'
 
 export interface ColorProps {
   maskID: string;
@@ -21,27 +19,18 @@ const ColorComponent: React.FC<ColorProps> = ({ maskID, color }: ColorProps) => 
 }
 
 const Colors: React.FC<ColorProps> = ({ maskID, color }: ColorProps) => {
-  return (
-    <Selector defaultKey='BrownDark' selectedKey={color}>
-      <ColorComponent maskID={maskID} color='#A55728' key='Auburn' />
-
-      <ColorComponent maskID={maskID} color='#2C1B18' key='Black' />
-
-      <ColorComponent maskID={maskID} color='#B58143' key='Blonde' />
-
-      <ColorComponent maskID={maskID} color='#D6B370' key='BlondeGolden' />
-
-      <ColorComponent maskID={maskID} color='#724133' key='Brown' />
-
-      <ColorComponent maskID={maskID} color='#4A312C' key='BrownDark' />
-
-      <ColorComponent maskID={maskID} color='#ECDCBF' key='Platinum' />
-
-      <ColorComponent maskID={maskID} color='#C93305' key='Red' />
-
-      <ColorComponent maskID={maskID} color='#E8E1E1' key='SilverGray' />
-    </Selector>
-  )
+  if (!color) return <ColorComponent maskID={maskID} color='#4A312C' key='BrownDark' />;
+  return {
+    'Auburn': <ColorComponent maskID={maskID} color='#A55728' key='Auburn' />,
+    'Black': <ColorComponent maskID={maskID} color='#2C1B18' key='Black' />,
+    'Blonde': <ColorComponent maskID={maskID} color='#B58143' key='Blonde' />,
+    'BlondeGolden': <ColorComponent maskID={maskID} color='#D6B370' key='BlondeGolden' />,
+    'Brown': <ColorComponent maskID={maskID} color='#724133' key='Brown' />,
+    'BrownDark': <ColorComponent maskID={maskID} color='#4A312C' key='BrownDark' />,
+    'Platinum': <ColorComponent maskID={maskID} color='#ECDCBF' key='Platinum' />,
+    'Red': <ColorComponent maskID={maskID} color='#C93305' key='Red' />,
+    'SilverGray': <ColorComponent maskID={maskID} color='#E8E1E1' key='SilverGray' />
+  }[color];
 }
 
 export default Colors;

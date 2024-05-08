@@ -1,17 +1,17 @@
-import React from 'react'
+import * as React from 'react'
 import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import { TopProps } from './top-props'
 
 const LongHairShavedSides: React.FC<TopProps> = ({ children, facialHairColor, facialHairType }: TopProps) => {
-  const mask1 = uniqueId('react-mask-')
-  const mask2 = uniqueId('react-mask-')
-  const mask3 = uniqueId('react-mask-')
-  const path1 = uniqueId('react-path-')
-  const path2 = uniqueId('react-path-')
-  const path3 = uniqueId('react-path-')
-  const path4 = uniqueId('react-path-')
+  const [mask1] = React.useState(() => uniqueId('react-mask-'))
+  const [mask2] = React.useState(() => uniqueId('react-mask-'))
+  const [mask3] = React.useState(() => uniqueId('react-mask-'))
+  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const [path2] = React.useState(() => uniqueId('react-path-'))
+  const [path3] = React.useState(() => uniqueId('react-path-'))
+  const [path4] = React.useState(() => uniqueId('react-path-'))
 
   return (
     <g id='Top' strokeWidth='1' fillRule='evenodd'>

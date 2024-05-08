@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Serious = () => {
   return <g id='Mouth/Serious' transform='translate(2.000000, 52.000000)' fill='#000000' fillOpacity='0.699999988'>

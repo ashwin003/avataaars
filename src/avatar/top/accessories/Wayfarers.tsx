@@ -1,12 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { uniqueId } from 'lodash'
 
 const Wayfarers: React.FC = () => {
 
-  const path1 = uniqueId('react-path-')
-  const path2 = uniqueId('react-path-')
-  const filter1 = uniqueId('react-filter-')
-  const linearGradient1 = uniqueId('react-linear-gradient-')
+  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const [path2] = React.useState(() => uniqueId('react-path-'))
+  const [filter1] = React.useState(() => uniqueId('react-filter-'))
+  const [linearGradient1] = React.useState(() => uniqueId('react-linear-gradient-'))
 
   return (
     <g

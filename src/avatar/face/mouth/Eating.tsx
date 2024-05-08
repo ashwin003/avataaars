@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Eating = () => {
   return <g id='Mouth/Eating' transform='translate(2.000000, 52.000000)'>

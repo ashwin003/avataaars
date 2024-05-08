@@ -3,8 +3,8 @@ import { Props } from "./props";
 import { uniqueId } from "lodash";
 
 export const Bear: React.FC<Props> = ({ maskID }: Props) => {
-  const mask1 = uniqueId('react-mask-')
-  const path1 = uniqueId('react-path-')
+  const [mask1] = React.useState(() => uniqueId('react-mask-'))
+  const [path1] = React.useState(() => uniqueId('react-path-'))
 
   return (
     <g

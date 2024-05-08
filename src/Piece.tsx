@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { AvatarStyle } from './avatar';
 import { default as PieceComponent, PieceProps } from './avatar/piece';
 

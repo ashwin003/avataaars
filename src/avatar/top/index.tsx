@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import Eyepatch from './Eyepatch'
 import Hat from './Hat'
@@ -35,49 +35,47 @@ import WinterHat1 from './WinterHat1'
 import WinterHat2 from './WinterHat2'
 import WinterHat3 from './WinterHat3'
 import WinterHat4 from './WinterHat4'
-import { Selector } from '../../options'
 import { TopProps } from './top-props'
 
-const Top: React.FC<TopProps> = ({ children, type }: TopProps) => {
-  return (
-    <Selector defaultKey='LongHairStraight' selectedKey={type}>
-      <NoHair key='NoHair'>{children}</NoHair>
-      <Eyepatch key='Eyepatch'></Eyepatch>
-      <Hat key='Hat'>{children}</Hat>
-      <Hijab key='Hijab'>{children}</Hijab>
-      <Turban key='Turban'>{children}</Turban>
-      <WinterHat1 key='WinterHat1'>{children}</WinterHat1>
-      <WinterHat2 key='WinterHat2'>{children}</WinterHat2>
-      <WinterHat3 key='WinterHat3'>{children}</WinterHat3>
-      <WinterHat4 key='WinterHat4'>{children}</WinterHat4>
-      <LongHairBigHair key='LongHairBigHair'>{children}</LongHairBigHair>
-      <LongHairBob key='LongHairBob'>{children}</LongHairBob>
-      <LongHairBun key='LongHairBun'>{children}</LongHairBun>
-      <LongHairCurly key='LongHairCurly'>{children}</LongHairCurly>
-      <LongHairCurvy key='LongHairCurvy'>{children}</LongHairCurvy>
-      <LongHairDreads key='LongHairDreads'>{children}</LongHairDreads>
-      <LongHairFrida key='LongHairFrida'>{children}</LongHairFrida>
-      <LongHairFro key='LongHairFro'>{children}</LongHairFro>
-      <LongHairFroBand key='LongHairFroBand'>{children}</LongHairFroBand>
-      <LongHairNotTooLong key='LongHairNotTooLong'>{children}</LongHairNotTooLong>
-      <LongHairShavedSides key='LongHairShavedSides'>{children}</LongHairShavedSides>
-      <LongHairMiaWallace key='LongHairMiaWallace'>{children}</LongHairMiaWallace>
-      <LongHairStraight key='LongHairStraight'>{children}</LongHairStraight>
-      <LongHairStraight2 key='LongHairStraight2'>{children}</LongHairStraight2>
-      <LongHairStraightStrand key='LongHairStraightStrand'>{children}</LongHairStraightStrand>
-      <ShortHairDreads01 key='ShortHairDreads01'>{children}</ShortHairDreads01>
-      <ShortHairDreads02 key='ShortHairDreads02'>{children}</ShortHairDreads02>
-      <ShortHairFrizzle key='ShortHairFrizzle'>{children}</ShortHairFrizzle>
-      <ShortHairShaggyMullet key='ShortHairShaggyMullet'>{children}</ShortHairShaggyMullet>
-      <ShortHairShortCurly key='ShortHairShortCurly'>{children}</ShortHairShortCurly>
-      <ShortHairShortFlat key='ShortHairShortFlat'>{children}</ShortHairShortFlat>
-      <ShortHairShortRound key='ShortHairShortRound'>{children}</ShortHairShortRound>
-      <ShortHairShortWaved key='ShortHairShortWaved'>{children}</ShortHairShortWaved>
-      <ShortHairSides key='ShortHairSides'>{children}</ShortHairSides>
-      <ShortHairTheCaesar key='ShortHairTheCaesar'>{children}</ShortHairTheCaesar>
-      <ShortHairTheCaesarSidePart key='ShortHairTheCaesarSidePart'>{children}</ShortHairTheCaesarSidePart>
-    </Selector>
-  )
+const Top: React.FC<TopProps> = ({ children, type, facialHairColor, facialHairType }: TopProps) => {
+  if (!type) return <LongHairStraight key='LongHairStraight'>{children}</LongHairStraight>;
+  return {
+    'NoHair': <NoHair key='NoHair' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</NoHair>,
+    'Eyepatch': <Eyepatch key='Eyepatch'></Eyepatch>,
+    'Hat': <Hat key='Hat' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</Hat>,
+    'Hijab': <Hijab key='Hijab' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</Hijab>,
+    'Turban': <Turban key='Turban' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</Turban>,
+    'WinterHat1': <WinterHat1 key='WinterHat1' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</WinterHat1>,
+    'WinterHat2': <WinterHat2 key='WinterHat2' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</WinterHat2>,
+    'WinterHat3': <WinterHat3 key='WinterHat3' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</WinterHat3>,
+    'WinterHat4': <WinterHat4 key='WinterHat4' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</WinterHat4>,
+    'LongHairBigHair': <LongHairBigHair key='LongHairBigHair' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairBigHair>,
+    'LongHairBob': <LongHairBob key='LongHairBob' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairBob>,
+    'LongHairBun': <LongHairBun key='LongHairBun' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairBun>,
+    'LongHairCurly': <LongHairCurly key='LongHairCurly' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairCurly>,
+    'LongHairCurvy': <LongHairCurvy key='LongHairCurvy' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairCurvy>,
+    'LongHairDreads': <LongHairDreads key='LongHairDreads' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairDreads>,
+    'LongHairFrida': <LongHairFrida key='LongHairFrida' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairFrida>,
+    'LongHairFro': <LongHairFro key='LongHairFro' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairFro>,
+    'LongHairFroBand': <LongHairFroBand key='LongHairFroBand' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairFroBand>,
+    'LongHairNotTooLong': <LongHairNotTooLong key='LongHairNotTooLong' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairNotTooLong>,
+    'LongHairShavedSides': <LongHairShavedSides key='LongHairShavedSides' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairShavedSides>,
+    'LongHairMiaWallace': <LongHairMiaWallace key='LongHairMiaWallace' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairMiaWallace>,
+    'LongHairStraight': <LongHairStraight key='LongHairStraight' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairStraight>,
+    'LongHairStraight2': <LongHairStraight2 key='LongHairStraight2' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairStraight2>,
+    'LongHairStraightStrand': <LongHairStraightStrand key='LongHairStraightStrand' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</LongHairStraightStrand>,
+    'ShortHairDreads01': <ShortHairDreads01 key='ShortHairDreads01' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairDreads01>,
+    'ShortHairDreads02': <ShortHairDreads02 key='ShortHairDreads02' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairDreads02>,
+    'ShortHairFrizzle': <ShortHairFrizzle key='ShortHairFrizzle' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairFrizzle>,
+    'ShortHairShaggyMullet': <ShortHairShaggyMullet key='ShortHairShaggyMullet' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairShaggyMullet>,
+    'ShortHairShortCurly': <ShortHairShortCurly key='ShortHairShortCurly' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairShortCurly>,
+    'ShortHairShortFlat': <ShortHairShortFlat key='ShortHairShortFlat' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairShortFlat>,
+    'ShortHairShortRound': <ShortHairShortRound key='ShortHairShortRound' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairShortRound>,
+    'ShortHairShortWaved': <ShortHairShortWaved key='ShortHairShortWaved' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairShortWaved>,
+    'ShortHairSides': <ShortHairSides key='ShortHairSides' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairSides>,
+    'ShortHairTheCaesar': <ShortHairTheCaesar key='ShortHairTheCaesar' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairTheCaesar>,
+    'ShortHairTheCaesarSidePart': <ShortHairTheCaesarSidePart key='ShortHairTheCaesarSidePart' facialHairColor={facialHairColor} facialHairType={facialHairType}>{children}</ShortHairTheCaesarSidePart>
+  }[type];
 }
 
 export default Top;

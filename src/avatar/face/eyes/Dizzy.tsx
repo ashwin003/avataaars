@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Dizzy = () => {
   return <g id='Eyes/X-Dizzy-😵' transform='translate(0.000000, 8.000000)' fillOpacity='0.599999964' fillRule='nonzero'>

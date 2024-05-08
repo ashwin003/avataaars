@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const AngryNatural = () => {
   return <g id='Eyebrow/Natural/Angry-Natural' fillOpacity='0.599999964'>

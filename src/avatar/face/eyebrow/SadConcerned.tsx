@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const SadConcerned = () => {
   return <g id='Eyebrow/Outline/Sad-Concerned' fillOpacity='0.599999964' fillRule='nonzero'>

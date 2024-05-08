@@ -1,12 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { uniqueId } from 'lodash'
 
 const Vomit: React.FC = () => {
 
-  const path1 = uniqueId('react-path-')
-  const path2 = uniqueId('react-path-')
-  const mask1 = uniqueId('react-mask-')
-  const filter1 = uniqueId('react-filter-')
+  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const [path2] = React.useState(() => uniqueId('react-path-'))
+  const [mask1] = React.useState(() => uniqueId('react-mask-'))
+  const [filter1] = React.useState(() => uniqueId('react-filter-'))
 
   return (
     <g id='Mouth/Vomit' transform='translate(2.000000, 52.000000)'>

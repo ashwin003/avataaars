@@ -1,5 +1,4 @@
 import React from "react";
-import { Selector } from "../../../options";
 import { Bat } from "./bat";
 import { Bear } from "./bear";
 import { Cumbia } from "./cumbia";
@@ -14,19 +13,20 @@ import { SkullOutline } from "./skull-outline";
 import { GraphicsProps } from "./type";
 
 const Graphics: React.FC<GraphicsProps> = ({ maskID, type }: GraphicsProps) => {
-  return <Selector defaultKey='Skull' selectedKey={type}>
-    <Bat maskID={maskID} key='Bat' />
-    <Cumbia maskID={maskID} key='Cumbia' />
-    <Deer maskID={maskID} key='Deer' />
-    <Diamond maskID={maskID} key='Diamond' />
-    <Hola maskID={maskID} key='Hola' />
-    <Pizza maskID={maskID} key='Pizza' />
-    <Resist maskID={maskID} key='Resist' />
-    <Selena maskID={maskID} key='Selena' />
-    <Bear maskID={maskID} key='Bear' />
-    <SkullOutline maskID={maskID} key='SkullOutline' />
-    <Skull maskID={maskID} key='Skull' />
-  </Selector>;
+  if (!type) return <Skull maskID={maskID} key='Skull' />;
+  return {
+    'Bat': <Bat maskID={maskID} key='Bat' />,
+    'Cumbia': <Cumbia maskID={maskID} key='Cumbia' />,
+    'Deer': <Deer maskID={maskID} key='Deer' />,
+    'Diamond': <Diamond maskID={maskID} key='Diamond' />,
+    'Hola': <Hola maskID={maskID} key='Hola' />,
+    'Pizza': <Pizza maskID={maskID} key='Pizza' />,
+    'Resist': <Resist maskID={maskID} key='Resist' />,
+    'Selena': <Selena maskID={maskID} key='Selena' />,
+    'Bear': <Bear maskID={maskID} key='Bear' />,
+    'SkullOutline': <SkullOutline maskID={maskID} key='SkullOutline' />,
+    'Skull': <Skull maskID={maskID} key='Skull' />
+  }[type];
 };
 
 export default Graphics;

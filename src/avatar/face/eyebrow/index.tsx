@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import Angry from './Angry'
 import AngryNatural from './AngryNatural'
@@ -12,24 +12,24 @@ import SadConcernedNatural from './SadConcernedNatural'
 import UnibrowNatural from './UnibrowNatural'
 import UpDown from './UpDown'
 import UpDownNatural from './UpDownNatural'
-import { Selector } from '../../../options'
 import { EyebrowProps } from './type'
 
 const Eyebrow: React.FC<EyebrowProps> = ({ type }: EyebrowProps) => {
-  return <Selector defaultKey='Default' selectedKey={type}>
-    <Angry key='Angry' />
-    <AngryNatural key='AngryNatural' />
-    <Default key='Default' />
-    <DefaultNatural key='DefaultNatural' />
-    <FlatNatural key='FlatNatural' />
-    <RaisedExcited key='RaisedExcited' />
-    <RaisedExcitedNatural key='RaisedExcitedNatural' />
-    <SadConcerned key='SadConcerned' />
-    <SadConcernedNatural key='SadConcernedNatural' />
-    <UnibrowNatural key='UnibrowNatural' />
-    <UpDown key='UpDown' />
-    <UpDownNatural key='UpDownNatural' />
-  </Selector>;
+  if (!type) return <Default key='Default' />;
+  return {
+    'Angry': <Angry key='Angry' />,
+    'AngryNatural': <AngryNatural key='AngryNatural' />,
+    'Default': <Default key='Default' />,
+    'DefaultNatural': <DefaultNatural key='DefaultNatural' />,
+    'FlatNatural': <FlatNatural key='FlatNatural' />,
+    'RaisedExcited': <RaisedExcited key='RaisedExcited' />,
+    'RaisedExcitedNatural': <RaisedExcitedNatural key='RaisedExcitedNatural' />,
+    'SadConcerned': <SadConcerned key='SadConcerned' />,
+    'SadConcernedNatural': <SadConcernedNatural key='SadConcernedNatural' />,
+    'UnibrowNatural': <UnibrowNatural key='UnibrowNatural' />,
+    'UpDown': <UpDown key='UpDown' />,
+    'UpDownNatural': <UpDownNatural key='UpDownNatural' />
+  }[type];
 };
 
 export default Eyebrow;

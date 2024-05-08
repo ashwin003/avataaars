@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Twinkle = () => {
   return <g id='Mouth/Twinkle' transform='translate(2.000000, 52.000000)' fillOpacity='0.599999964' fillRule='nonzero' fill='#000000'>

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Hearts = () => {
   return <g id='Eyes/Hearts-😍' transform='translate(0.000000, 8.000000)' fillOpacity='0.8' fillRule='nonzero' fill='#FF5353'>

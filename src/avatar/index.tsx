@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { uniqueId } from 'lodash'
 
 import Accessories from './top/accessories'
@@ -35,12 +35,12 @@ const Avatar: React.FC<AvatarProps> = (
     facialHairColor,
     accessoriesType
   }: AvatarProps) => {
-  const path1 = uniqueId('react-path-');
-  const path2 = uniqueId('react-path-');
-  const path3 = uniqueId('react-path-');
-  const mask1 = uniqueId('react-mask-');
-  const mask2 = uniqueId('react-mask-');
-  const mask3 = uniqueId('react-mask-');
+  const [path1] = React.useState(() => uniqueId('react-path-'));
+  const [path2] = React.useState(() => uniqueId('react-path-'));
+  const [path3] = React.useState(() => uniqueId('react-path-'));
+  const [mask1] = React.useState(() => uniqueId('react-mask-'));
+  const [mask2] = React.useState(() => uniqueId('react-mask-'));
+  const [mask3] = React.useState(() => uniqueId('react-mask-'));
 
   const circle = avatarStyle === AvatarStyle.Circle;
 
@@ -72,8 +72,8 @@ const Avatar: React.FC<AvatarProps> = (
     <svg
       style={style}
       className={className}
-      // width="264px"
-      // height="280px"
+      width="100%"
+      height="100%"
       viewBox="0 0 264 280"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

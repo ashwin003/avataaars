@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const DefaultNatural = () => {
   return <g id='Eyebrow/Natural/Default-Natural' fillOpacity='0.599999964'>

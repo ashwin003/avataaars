@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import Close from './Close'
 import Cry from './Cry'
@@ -12,24 +12,25 @@ import Squint from './Squint'
 import Surprised from './Surprised'
 import Wink from './Wink'
 import WinkWacky from './WinkWacky'
-import { Selector } from '../../../options'
 import { EyeProps } from './type'
 
 const Eyes = ({ type }: EyeProps) => {
-  return <Selector defaultKey='Default' selectedKey={type}>
-    <Close key='Close' />
-    <Cry key='Cry' />
-    <Default key='Default' />
-    <Dizzy key='Dizzy' />
-    <EyeRoll key='EyeRoll' />
-    <Happy key='Happy' />
-    <Hearts key='Hearts' />
-    <Side key='Side' />
-    <Squint key='Squint' />
-    <Surprised key='Surprised' />
-    <Wink key='Wink' />
-    <WinkWacky key='WinkWacky' />
-  </Selector>;
+  if (!type) return <Default key='Default' />;
+
+  return {
+    'Close': <Close key='Close' />,
+    'Cry': <Cry key='Cry' />,
+    'Default': <Default key='Default' />,
+    'Dizzy': <Dizzy key='Dizzy' />,
+    'EyeRoll': <EyeRoll key='EyeRoll' />,
+    'Happy': <Happy key='Happy' />,
+    'Hearts': <Hearts key='Hearts' />,
+    'Side': <Side key='Side' />,
+    'Squint': <Squint key='Squint' />,
+    'Surprised': <Surprised key='Surprised' />,
+    'Wink': <Wink key='Wink' />,
+    'WinkWacky': <WinkWacky key='WinkWacky' />
+  }[type];
 };
 
 export default Eyes;

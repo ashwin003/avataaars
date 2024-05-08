@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { Selector } from '../options'
+import * as React from 'react'
 
 export interface SkinProps {
   maskID: string;
@@ -21,22 +19,16 @@ const ColorComponent: React.FC<SkinProps> = ({ maskID, color }: SkinProps) => {
 }
 
 const Skin: React.FC<SkinProps> = ({ maskID, color }: SkinProps) => {
-
-  return <Selector defaultKey='Light' selectedKey={color}>
-    <ColorComponent maskID={maskID} color='#FD9841' key='Tanned'></ColorComponent>
-
-    <ColorComponent maskID={maskID} color='#FFDBB4' key='Pale'></ColorComponent>
-
-    <ColorComponent maskID={maskID} color='#F8D25C' key='Yellow'></ColorComponent>
-
-    <ColorComponent maskID={maskID} color='#EDB98A' key='Light'></ColorComponent>
-
-    <ColorComponent maskID={maskID} color='#D08B5B' key='Brown'></ColorComponent>
-
-    <ColorComponent maskID={maskID} color='#AE5D29' key='DarkBrown'></ColorComponent>
-
-    <ColorComponent maskID={maskID} color='#614335' key='Black'></ColorComponent>
-  </Selector>;
+  if (!color) return <ColorComponent maskID={maskID} color='#EDB98A' key='Light'></ColorComponent>;
+  return {
+    'Tanned': <ColorComponent maskID={maskID} color='#FD9841' key='Tanned'></ColorComponent>,
+    'Pale': <ColorComponent maskID={maskID} color='#FFDBB4' key='Pale'></ColorComponent>,
+    'Yellow': <ColorComponent maskID={maskID} color='#F8D25C' key='Yellow'></ColorComponent>,
+    'Light': <ColorComponent maskID={maskID} color='#EDB98A' key='Light'></ColorComponent>,
+    'Brown': <ColorComponent maskID={maskID} color='#D08B5B' key='Brown'></ColorComponent>,
+    'DarkBrown': <ColorComponent maskID={maskID} color='#AE5D29' key='DarkBrown'></ColorComponent>,
+    'Black': <ColorComponent maskID={maskID} color='#614335' key='Black'></ColorComponent>
+  }[color];
 };
 
 export default Skin;

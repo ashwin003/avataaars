@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { Selector } from '../../options'
+import * as React from 'react'
 
 export interface HairProps {
   maskID: string;
@@ -21,19 +19,20 @@ const ColorComponent: React.FC<HairProps> = ({ maskID, color }: HairProps) => {
 }
 
 const HairColor: React.FC<HairProps> = ({ maskID, color }: HairProps) => {
-  return <Selector defaultKey='BrownDark' selectedKey={color}>
-    <ColorComponent maskID={maskID} key='Auburn' color='#A55728' />
-    <ColorComponent maskID={maskID} key='Black' color='#2C1B18' />
-    <ColorComponent maskID={maskID} key='Blonde' color='#B58143' />
-    <ColorComponent maskID={maskID} key='BlondeGolden' color='#D6B370' />
-    <ColorComponent maskID={maskID} key='Brown' color='#724133' />
-    <ColorComponent maskID={maskID} key='BrownDark' color='#4A312C' />
-    <ColorComponent maskID={maskID} key='PastelPink' color='#F59797' />
-    <ColorComponent maskID={maskID} key='Blue' color='#000fdb' />
-    <ColorComponent maskID={maskID} key='Platinum' color='#ECDCBF' />
-    <ColorComponent maskID={maskID} key='Red' color='#C93305' />
-    <ColorComponent maskID={maskID} key='SilverGray' color='#E8E1E1' />
-  </Selector>;
+  if (!color) return <ColorComponent maskID={maskID} key='BrownDark' color='#4A312C' />;
+  return {
+    'Auburn': <ColorComponent maskID={maskID} key='Auburn' color='#A55728' />,
+    'Black': <ColorComponent maskID={maskID} key='Black' color='#2C1B18' />,
+    'Blonde': <ColorComponent maskID={maskID} key='Blonde' color='#B58143' />,
+    'BlondeGolden': <ColorComponent maskID={maskID} key='BlondeGolden' color='#D6B370' />,
+    'Brown': <ColorComponent maskID={maskID} key='Brown' color='#724133' />,
+    'BrownDark': <ColorComponent maskID={maskID} key='BrownDark' color='#4A312C' />,
+    'PastelPink': <ColorComponent maskID={maskID} key='PastelPink' color='#F59797' />,
+    'Blue': <ColorComponent maskID={maskID} key='Blue' color='#000fdb' />,
+    'Platinum': <ColorComponent maskID={maskID} key='Platinum' color='#ECDCBF' />,
+    'Red': <ColorComponent maskID={maskID} key='Red' color='#C93305' />,
+    'SilverGray': <ColorComponent maskID={maskID} key='SilverGray' color='#E8E1E1' />
+  }[color];
 };
 
 export default HairColor;

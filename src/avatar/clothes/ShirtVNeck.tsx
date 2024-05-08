@@ -1,12 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { uniqueId } from 'lodash'
 
 import Colors from './Colors'
 import { ClotheProps } from './type'
 
 const ShirtVNeck: React.FC<ClotheProps> = ({ color }: ClotheProps) => {
-  const path1 = uniqueId('react-path-')
-  const mask1 = uniqueId('react-mask-')
+  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const [mask1] = React.useState(() => uniqueId('react-mask-'))
 
   return (
     <g id='Clothing/Shirt-V-Neck' transform='translate(0.000000, 170.000000)'>

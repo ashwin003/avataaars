@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const WinkWacky = () => {
   return <g id='Eyes/Wink-Wacky-😜' transform='translate(0.000000, 8.000000)'>

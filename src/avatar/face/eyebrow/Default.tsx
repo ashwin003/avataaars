@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Default = () => {
   return <g id='Eyebrow/Outline/Default' fillOpacity='0.599999964'>

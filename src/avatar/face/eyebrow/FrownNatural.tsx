@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const FrownNatural = () => {
   return <g id='Eyebrow/Natural/Frown-Natural' fillOpacity='0.599999964'>

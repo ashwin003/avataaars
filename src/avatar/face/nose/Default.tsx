@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Default = () => {
   return <g id='Nose/Default' transform='translate(28.000000, 40.000000)' fillOpacity='0.16'>

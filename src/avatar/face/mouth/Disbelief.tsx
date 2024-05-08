@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Disbelief = () => {
   return <g id='Mouth/Disbelief' transform='translate(2.000000, 52.000000)' fillOpacity='0.699999988' fill='#000000'>

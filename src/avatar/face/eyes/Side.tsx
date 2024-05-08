@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const Side = () => {
   return <g id='Eyes/Side-😒' transform='translate(0.000000, 8.000000)' fillOpacity='0.599999964'>

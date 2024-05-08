@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const FlatNatural = () => {
   return <g id='Eyebrow/Natural/Flat-Natural' fillOpacity='0.599999964'>

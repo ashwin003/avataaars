@@ -1,10 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 import { uniqueId } from 'lodash'
 
 const Round: React.FC = () => {
 
-  const path1 = uniqueId('react-path-')
-  const filter1 = uniqueId('react-filter-')
+  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const [filter1] = React.useState(() => uniqueId('react-filter-'))
 
   return (
     <g
