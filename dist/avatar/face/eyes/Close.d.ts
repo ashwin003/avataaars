@@ -1,5 +1,3 @@
 import * as React from 'react';
-export default class Close extends React.Component {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
+declare const Close: () => React.JSX.Element;
+export default Close;

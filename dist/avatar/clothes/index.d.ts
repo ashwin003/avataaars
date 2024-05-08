@@ -1,4 +1,4 @@
 import * as React from 'react';
-export default class Clothes extends React.Component {
-    render(): React.JSX.Element;
-}
+import { ClotheProps } from './type';
+declare const Clothes: ({ type, color, graphicType }: ClotheProps) => React.JSX.Element | undefined;
+export default Clothes;

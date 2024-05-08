@@ -1,7 +1,4 @@
 import * as React from 'react';
-export default class Eyepatch extends React.Component {
-    static optionValue: string;
-    private mask1;
-    private path1;
-    render(): React.JSX.Element;
-}
+import { TopProps } from './top-props';
+declare const Eyepatch: React.FC<TopProps>;
+export default Eyepatch;

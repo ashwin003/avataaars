@@ -1,4 +1,4 @@
 import * as React from 'react';
-export default class FacialHair extends React.Component {
-    render(): React.JSX.Element;
-}
+import { FacialHairProps } from './type';
+declare const FacialHair: React.FC<FacialHairProps>;
+export default FacialHair;

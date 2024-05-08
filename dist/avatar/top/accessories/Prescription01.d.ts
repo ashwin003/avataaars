@@ -1,6 +1,3 @@
 import * as React from 'react';
-export default class Prescription01 extends React.Component {
-    static optionValue: string;
-    private filter1;
-    render(): React.JSX.Element;
-}
+declare const Prescription01: React.FC;
+export default Prescription01;

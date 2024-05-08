@@ -1,7 +1,4 @@
 import * as React from 'react';
-export default class GraphicShirt extends React.Component {
-    static optionValue: string;
-    private path1;
-    private mask1;
-    render(): React.JSX.Element;
-}
+import { ClotheProps } from './type';
+declare const GraphicShirt: React.FC<ClotheProps>;
+export default GraphicShirt;

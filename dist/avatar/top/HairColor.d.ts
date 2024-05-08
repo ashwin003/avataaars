@@ -1,7 +1,7 @@
 import * as React from 'react';
-export interface Props {
+export interface HairProps {
     maskID: string;
+    color?: string;
 }
-export default class HairColor extends React.Component<Props> {
-    render(): React.JSX.Element;
-}
+declare const HairColor: React.FC<HairProps>;
+export default HairColor;

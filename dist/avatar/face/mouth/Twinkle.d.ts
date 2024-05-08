@@ -1,5 +1,3 @@
 import * as React from 'react';
-export default class Twinkle extends React.Component {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
+declare const Twinkle: () => React.JSX.Element;
+export default Twinkle;

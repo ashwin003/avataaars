@@ -1,19 +1,15 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
     };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AvatarStyle = void 0;
 var React = require("react");
@@ -32,25 +28,36 @@ var AvatarStyle;
     AvatarStyle["Circle"] = "Circle";
     AvatarStyle["Transparent"] = "Transparent";
 })(AvatarStyle || (exports.AvatarStyle = AvatarStyle = {}));
-var PieceComponent = /** @class */ (function (_super) {
-    __extends(PieceComponent, _super);
-    function PieceComponent() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    PieceComponent.prototype.render = function () {
-        return (React.createElement("svg", { style: this.props.style, width: "".concat(this.props.pieceSize, "px"), height: "".concat(this.props.pieceSize, "px"), viewBox: this.props.viewBox || "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
-            this.props.pieceType === 'top' && React.createElement(top_1.default, null),
-            this.props.pieceType === 'clothe' && React.createElement(clothes_1.default, null),
-            this.props.pieceType === 'graphics' && React.createElement(Graphics_1.default, { maskID: "1234" }),
-            (this.props.pieceType === 'accessories' ||
-                this.props.pieceType === 'accesories') && React.createElement(accessories_1.default, null),
-            this.props.pieceType === 'facialHair' && React.createElement(facialHair_1.default, null),
-            this.props.pieceType === 'eyes' && React.createElement(eyes_1.default, null),
-            this.props.pieceType === 'eyebrows' && React.createElement(eyebrow_1.default, null),
-            this.props.pieceType === 'mouth' && React.createElement(mouth_1.default, null),
-            this.props.pieceType === 'nose' && React.createElement(nose_1.default, null),
-            this.props.pieceType === 'skin' && React.createElement(Skin_1.default, { maskID: "5678" })));
+var PieceComponent = function (_a) {
+    var style = _a.style, skinColor = _a.skinColor, clotheType = _a.clotheType, clotheColor = _a.clotheColor, graphicType = _a.graphicType, mouthType = _a.mouthType, eyeType = _a.eyeType, eyebrowType = _a.eyebrowType, topType = _a.topType, hairColor = _a.hairColor, facialHairType = _a.facialHairType, facialHairColor = _a.facialHairColor, accessoriesType = _a.accessoriesType, viewBox = _a.viewBox, pieceType = _a.pieceType;
+    var skinProps = {
+        color: skinColor,
+        maskID: '5678'
     };
-    return PieceComponent;
-}(React.Component));
+    var clotheProps = {
+        type: clotheType,
+        color: clotheColor,
+        graphicType: graphicType
+    };
+    var topProps = {
+        type: topType,
+        hairColor: hairColor,
+        facialHairType: facialHairType,
+        facialHairColor: facialHairColor
+    };
+    var accessoriesProps = {
+        type: accessoriesType
+    };
+    return React.createElement("svg", { style: style, width: '100%', height: '100%', viewBox: viewBox || "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
+        pieceType === 'top' && React.createElement(top_1.default, __assign({}, topProps)),
+        pieceType === 'clothe' && React.createElement(clothes_1.default, __assign({}, clotheProps)),
+        pieceType === 'graphics' && React.createElement(Graphics_1.default, { maskID: "1234" }),
+        (pieceType === 'accessories' || pieceType === 'accesories') && React.createElement(accessories_1.default, __assign({}, accessoriesProps)),
+        pieceType === 'facialHair' && React.createElement(facialHair_1.default, { type: facialHairType, color: facialHairColor }),
+        pieceType === 'eyes' && React.createElement(eyes_1.default, { type: eyeType }),
+        pieceType === 'eyebrows' && React.createElement(eyebrow_1.default, { type: eyebrowType }),
+        pieceType === 'mouth' && React.createElement(mouth_1.default, { type: mouthType }),
+        pieceType === 'nose' && React.createElement(nose_1.default, null),
+        pieceType === 'skin' && React.createElement(Skin_1.default, __assign({}, skinProps)));
+};
 exports.default = PieceComponent;

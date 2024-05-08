@@ -1,4 +1,4 @@
 import * as React from 'react';
-export default class Accessories extends React.Component {
-    render(): React.JSX.Element;
-}
+import { AccessoriesProps } from './type';
+declare const Accessories: ({ type }: AccessoriesProps) => React.JSX.Element | undefined;
+export default Accessories;

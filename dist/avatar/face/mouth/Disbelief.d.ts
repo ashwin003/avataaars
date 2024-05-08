@@ -1,5 +1,3 @@
 import * as React from 'react';
-export default class Disbelief extends React.Component {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
+declare const Disbelief: () => React.JSX.Element;
+export default Disbelief;

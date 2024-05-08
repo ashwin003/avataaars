@@ -1,15 +1,14 @@
 import * as React from 'react';
+import { AvatarProps } from '../AvatarProps';
 export declare enum AvatarStyle {
     Circle = "Circle",
     Transparent = "Transparent"
 }
-export interface Props {
+export interface PieceProps extends AvatarProps {
     pieceSize?: string;
     pieceType?: string;
-    avatarStyle: AvatarStyle;
     style?: React.CSSProperties;
     viewBox?: string;
 }
-export default class PieceComponent extends React.Component<Props> {
-    render(): React.JSX.Element;
-}
+declare const PieceComponent: React.FC<PieceProps>;
+export default PieceComponent;
