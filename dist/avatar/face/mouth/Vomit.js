@@ -1,12 +1,48 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_1 = require("lodash");
-var Vomit = function () {
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var filter1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-filter-'); })[0];
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("../../useUniqueId"));
+const Vomit = () => {
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const path2 = (0, useUniqueId_1.default)('react-path-');
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
+    const filter1 = (0, useUniqueId_1.default)('react-filter-');
     return (React.createElement("g", { id: 'Mouth/Vomit', transform: 'translate(2.000000, 52.000000)' },
         React.createElement("defs", null,
             React.createElement("path", { d: 'M34.0082051,12.6020819 C35.1280248,23.0929366 38.2345159,31.9944054 53.9961505,31.9999974 C69.757785,32.0055894 72.9169073,23.0424631 73.9942614,12.5047938 C74.0809675,11.6567158 73.1738581,10.9999965 72.0369872,10.9999965 C65.3505138,10.9999965 62.6703194,12.4951994 53.9894323,12.4999966 C45.3085452,12.5047938 40.7567994,10.9999965 36.0924943,10.9999965 C34.9490269,10.9999965 33.8961688,11.5524868 34.0082051,12.6020819 Z', id: path1 }),
@@ -18,9 +54,9 @@ var Vomit = function () {
         React.createElement("mask", { id: mask1, fill: 'white' },
             React.createElement("use", { xlinkHref: '#' + path1, transform: 'translate(54.000000, 21.499998) scale(1, -1) translate(-54.000000, -21.499998) ' })),
         React.createElement("use", { id: 'Mouth', fillOpacity: '0.699999988', fill: '#000000', fillRule: 'evenodd', transform: 'translate(54.000000, 21.499998) scale(1, -1) translate(-54.000000, -21.499998) ', xlinkHref: '#' + path1 }),
-        React.createElement("rect", { id: 'Teeth', fill: '#FFFFFF', fillRule: 'evenodd', mask: "url(#".concat(mask1, ")"), x: '39', y: '0', width: '31', height: '16', rx: '5' }),
+        React.createElement("rect", { id: 'Teeth', fill: '#FFFFFF', fillRule: 'evenodd', mask: `url(#${mask1})`, x: '39', y: '0', width: '31', height: '16', rx: '5' }),
         React.createElement("g", { id: 'Vomit-Stuff' },
             React.createElement("use", { fill: '#88C553', fillRule: 'evenodd', xlinkHref: '#' + path2 }),
-            React.createElement("use", { fill: 'black', fillOpacity: '1', filter: "url(#".concat(filter1, ")"), xlinkHref: '#' + path2 }))));
+            React.createElement("use", { fill: 'black', fillOpacity: '1', filter: `url(#${filter1})`, xlinkHref: '#' + path2 }))));
 };
 exports.default = Vomit;

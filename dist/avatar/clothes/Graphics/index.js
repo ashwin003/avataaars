@@ -1,33 +1,69 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
-var bat_1 = require("./bat");
-var bear_1 = require("./bear");
-var cumbia_1 = require("./cumbia");
-var deer_1 = require("./deer");
-var diamond_1 = require("./diamond");
-var hola_1 = require("./hola");
-var pizza_1 = require("./pizza");
-var resist_1 = require("./resist");
-var selena_1 = require("./selena");
-var skull_1 = require("./skull");
-var skull_outline_1 = require("./skull-outline");
-var Graphics = function (_a) {
-    var maskID = _a.maskID, type = _a.type;
-    if (!type)
-        return react_1.default.createElement(skull_1.Skull, { maskID: maskID, key: 'Skull' });
-    return {
-        'Bat': react_1.default.createElement(bat_1.Bat, { maskID: maskID, key: 'Bat' }),
-        'Cumbia': react_1.default.createElement(cumbia_1.Cumbia, { maskID: maskID, key: 'Cumbia' }),
-        'Deer': react_1.default.createElement(deer_1.Deer, { maskID: maskID, key: 'Deer' }),
-        'Diamond': react_1.default.createElement(diamond_1.Diamond, { maskID: maskID, key: 'Diamond' }),
-        'Hola': react_1.default.createElement(hola_1.Hola, { maskID: maskID, key: 'Hola' }),
-        'Pizza': react_1.default.createElement(pizza_1.Pizza, { maskID: maskID, key: 'Pizza' }),
-        'Resist': react_1.default.createElement(resist_1.Resist, { maskID: maskID, key: 'Resist' }),
-        'Selena': react_1.default.createElement(selena_1.Selena, { maskID: maskID, key: 'Selena' }),
-        'Bear': react_1.default.createElement(bear_1.Bear, { maskID: maskID, key: 'Bear' }),
-        'SkullOutline': react_1.default.createElement(skull_outline_1.SkullOutline, { maskID: maskID, key: 'SkullOutline' }),
-        'Skull': react_1.default.createElement(skull_1.Skull, { maskID: maskID, key: 'Skull' })
-    }[type];
+const React = __importStar(require("react"));
+const lookup_1 = __importDefault(require("../../lookup"));
+const bat_1 = require("./bat");
+const bear_1 = require("./bear");
+const cumbia_1 = require("./cumbia");
+const deer_1 = require("./deer");
+const diamond_1 = require("./diamond");
+const hola_1 = require("./hola");
+const pizza_1 = require("./pizza");
+const resist_1 = require("./resist");
+const selena_1 = require("./selena");
+const skull_1 = require("./skull");
+const skull_outline_1 = require("./skull-outline");
+const components = {
+    Bat: bat_1.Bat,
+    Cumbia: cumbia_1.Cumbia,
+    Deer: deer_1.Deer,
+    Diamond: diamond_1.Diamond,
+    Hola: hola_1.Hola,
+    Pizza: pizza_1.Pizza,
+    Resist: resist_1.Resist,
+    Selena: selena_1.Selena,
+    Bear: bear_1.Bear,
+    SkullOutline: skull_outline_1.SkullOutline,
+    Skull: skull_1.Skull,
+};
+const Graphics = ({ maskID, type }) => {
+    const Component = (0, lookup_1.default)(components, type, 'Skull');
+    return Component ? React.createElement(Component, { maskID: maskID }) : null;
 };
 exports.default = Graphics;

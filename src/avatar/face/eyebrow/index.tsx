@@ -1,10 +1,12 @@
 import * as React from 'react'
 
+import lookup from '../../lookup'
 import Angry from './Angry'
 import AngryNatural from './AngryNatural'
 import Default from './Default'
 import DefaultNatural from './DefaultNatural'
 import FlatNatural from './FlatNatural'
+import FrownNatural from './FrownNatural'
 import RaisedExcited from './RaisedExcited'
 import RaisedExcitedNatural from './RaisedExcitedNatural'
 import SadConcerned from './SadConcerned'
@@ -14,22 +16,25 @@ import UpDown from './UpDown'
 import UpDownNatural from './UpDownNatural'
 import { EyebrowProps } from './type'
 
+const components: Readonly<Record<string, React.ComponentType>> = {
+  Angry: Angry,
+  AngryNatural: AngryNatural,
+  Default: Default,
+  DefaultNatural: DefaultNatural,
+  FlatNatural: FlatNatural,
+  FrownNatural: FrownNatural,
+  RaisedExcited: RaisedExcited,
+  RaisedExcitedNatural: RaisedExcitedNatural,
+  SadConcerned: SadConcerned,
+  SadConcernedNatural: SadConcernedNatural,
+  UnibrowNatural: UnibrowNatural,
+  UpDown: UpDown,
+  UpDownNatural: UpDownNatural,
+}
+
 const Eyebrow: React.FC<EyebrowProps> = ({ type }: EyebrowProps) => {
-  if (!type) return <Default key='Default' />;
-  return {
-    'Angry': <Angry key='Angry' />,
-    'AngryNatural': <AngryNatural key='AngryNatural' />,
-    'Default': <Default key='Default' />,
-    'DefaultNatural': <DefaultNatural key='DefaultNatural' />,
-    'FlatNatural': <FlatNatural key='FlatNatural' />,
-    'RaisedExcited': <RaisedExcited key='RaisedExcited' />,
-    'RaisedExcitedNatural': <RaisedExcitedNatural key='RaisedExcitedNatural' />,
-    'SadConcerned': <SadConcerned key='SadConcerned' />,
-    'SadConcernedNatural': <SadConcernedNatural key='SadConcernedNatural' />,
-    'UnibrowNatural': <UnibrowNatural key='UnibrowNatural' />,
-    'UpDown': <UpDown key='UpDown' />,
-    'UpDownNatural': <UpDownNatural key='UpDownNatural' />
-  }[type];
-};
+  const Component = lookup(components, type, 'Default')
+  return Component ? <Component /> : null
+}
 
 export default Eyebrow;

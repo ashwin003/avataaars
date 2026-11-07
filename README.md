@@ -83,6 +83,12 @@ export default class MyComponent extends React.Component {
 
 To explore avatar options and generate the React code, please use [Avataaars Generator](https://getavataaars.com/)
 
-## Collect options
+## Example configurator
 
-To build your own avatar editor, you may want to use lower level `Avatar` component along with `OptionContext`. For more details usage, please reference to source code of [avataaars-generator](https://github.com/fangpenlin/avataaars-geneator), see how it uses `OptionContext` to collection available options.
+The [`example/`](example/) folder contains a small configurator app built with Vite. It renders the library straight from `src/`, so changes to the components reload live. It isn't included in the npm package.
+
+```sh
+yarn example
+```
+
+To build your own editor, [`example/src/options.ts`](example/src/options.ts) lists every option value and shows which options apply to which tops and clothes.

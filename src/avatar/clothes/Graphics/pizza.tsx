@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react'
 import { Props } from "./props";
 
 export const Pizza: React.FC<Props> = ({ maskID }: Props) => {

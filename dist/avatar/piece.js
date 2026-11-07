@@ -1,63 +1,64 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
     };
-    return __assign.apply(this, arguments);
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AvatarStyle = void 0;
-var React = require("react");
-var clothes_1 = require("./clothes");
-var Graphics_1 = require("./clothes/Graphics");
-var accessories_1 = require("./top/accessories");
-var facialHair_1 = require("./top/facialHair");
-var top_1 = require("./top");
-var eyes_1 = require("./face/eyes");
-var eyebrow_1 = require("./face/eyebrow");
-var mouth_1 = require("./face/mouth");
-var nose_1 = require("./face/nose");
-var Skin_1 = require("./Skin");
-var AvatarStyle;
-(function (AvatarStyle) {
-    AvatarStyle["Circle"] = "Circle";
-    AvatarStyle["Transparent"] = "Transparent";
-})(AvatarStyle || (exports.AvatarStyle = AvatarStyle = {}));
-var PieceComponent = function (_a) {
-    var style = _a.style, skinColor = _a.skinColor, clotheType = _a.clotheType, clotheColor = _a.clotheColor, graphicType = _a.graphicType, mouthType = _a.mouthType, eyeType = _a.eyeType, eyebrowType = _a.eyebrowType, topType = _a.topType, hairColor = _a.hairColor, facialHairType = _a.facialHairType, facialHairColor = _a.facialHairColor, accessoriesType = _a.accessoriesType, viewBox = _a.viewBox, pieceType = _a.pieceType;
-    var skinProps = {
-        color: skinColor,
-        maskID: '5678'
-    };
-    var clotheProps = {
-        type: clotheType,
-        color: clotheColor,
-        graphicType: graphicType
-    };
-    var topProps = {
-        type: topType,
-        hairColor: hairColor,
-        facialHairType: facialHairType,
-        facialHairColor: facialHairColor
-    };
-    var accessoriesProps = {
-        type: accessoriesType
-    };
-    return React.createElement("svg", { style: style, width: '100%', height: '100%', viewBox: viewBox || "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
-        pieceType === 'top' && React.createElement(top_1.default, __assign({}, topProps)),
-        pieceType === 'clothe' && React.createElement(clothes_1.default, __assign({}, clotheProps)),
-        pieceType === 'graphics' && React.createElement(Graphics_1.default, { maskID: "1234" }),
-        (pieceType === 'accessories' || pieceType === 'accesories') && React.createElement(accessories_1.default, __assign({}, accessoriesProps)),
+const React = __importStar(require("react"));
+const clothes_1 = __importDefault(require("./clothes"));
+const Graphics_1 = __importDefault(require("./clothes/Graphics"));
+const accessories_1 = __importDefault(require("./top/accessories"));
+const facialHair_1 = __importDefault(require("./top/facialHair"));
+const top_1 = __importDefault(require("./top"));
+const eyes_1 = __importDefault(require("./face/eyes"));
+const eyebrow_1 = __importDefault(require("./face/eyebrow"));
+const mouth_1 = __importDefault(require("./face/mouth"));
+const nose_1 = __importDefault(require("./face/nose"));
+const Skin_1 = __importDefault(require("./Skin"));
+const PieceComponent = ({ style, skinColor, clotheType, clotheColor, graphicType, mouthType, eyeType, eyebrowType, topType, hairColor, hatColor, facialHairType, facialHairColor, accessoriesType, viewBox, pieceType, pieceSize }) => {
+    const size = pieceSize ? `${pieceSize}px` : '100%';
+    return React.createElement("svg", { style: style, width: size, height: size, viewBox: viewBox || "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
+        pieceType === 'top' && React.createElement(top_1.default, { type: topType, hairColor: hairColor, hatColor: hatColor, facialHairType: facialHairType, facialHairColor: facialHairColor }),
+        pieceType === 'clothe' && React.createElement(clothes_1.default, { type: clotheType, color: clotheColor, graphicType: graphicType }),
+        pieceType === 'graphics' && React.createElement(Graphics_1.default, { maskID: "1234", type: graphicType }),
+        (pieceType === 'accessories' || pieceType === 'accesories') && React.createElement(accessories_1.default, { type: accessoriesType }),
         pieceType === 'facialHair' && React.createElement(facialHair_1.default, { type: facialHairType, color: facialHairColor }),
         pieceType === 'eyes' && React.createElement(eyes_1.default, { type: eyeType }),
         pieceType === 'eyebrows' && React.createElement(eyebrow_1.default, { type: eyebrowType }),
         pieceType === 'mouth' && React.createElement(mouth_1.default, { type: mouthType }),
         pieceType === 'nose' && React.createElement(nose_1.default, null),
-        pieceType === 'skin' && React.createElement(Skin_1.default, __assign({}, skinProps)));
+        pieceType === 'skin' && React.createElement(Skin_1.default, { color: skinColor, maskID: "5678" }));
 };
 exports.default = PieceComponent;

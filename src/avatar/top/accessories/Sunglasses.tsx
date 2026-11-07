@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../../useUniqueId'
 
 const Sunglasses: React.FC = () => {
 
-  const [path1] = React.useState(() => uniqueId('react-path-'))
-  const [path2] = React.useState(() => uniqueId('react-path-'))
-  const [filter1] = React.useState(() => uniqueId('react-filter-'))
-  const [linearGradient1] = React.useState(() => uniqueId('react-linear-gradient-'))
-  const [linearGradient2] = React.useState(() => uniqueId('react-linear-gradient-'))
+  const path1 = useUniqueId('react-path-')
+  const path2 = useUniqueId('react-path-')
+  const filter1 = useUniqueId('react-filter-')
+  const linearGradient1 = useUniqueId('react-linear-gradient-')
+  const linearGradient2 = useUniqueId('react-linear-gradient-')
 
   return (
     <g

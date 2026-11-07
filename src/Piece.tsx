@@ -1,8 +1,2 @@
-import * as React from 'react';
-import { AvatarStyle } from './avatar';
-import { default as PieceComponent, PieceProps } from './avatar/piece';
-
-
-export const Piece: React.FC<PieceProps> = (props: PieceProps) => {
-  return <PieceComponent  {...props} avatarStyle={props.avatarStyle as AvatarStyle} />;
-}
+export { default as Piece } from './avatar/piece'
+export type { PieceProps } from './avatar/piece'

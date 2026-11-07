@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import lookup from '../../lookup'
 import Close from './Close'
 import Cry from './Cry'
 import Default from './Default'
@@ -14,23 +15,24 @@ import Wink from './Wink'
 import WinkWacky from './WinkWacky'
 import { EyeProps } from './type'
 
-const Eyes = ({ type }: EyeProps) => {
-  if (!type) return <Default key='Default' />;
+const components: Readonly<Record<string, React.ComponentType>> = {
+  Close: Close,
+  Cry: Cry,
+  Default: Default,
+  Dizzy: Dizzy,
+  EyeRoll: EyeRoll,
+  Happy: Happy,
+  Hearts: Hearts,
+  Side: Side,
+  Squint: Squint,
+  Surprised: Surprised,
+  Wink: Wink,
+  WinkWacky: WinkWacky,
+}
 
-  return {
-    'Close': <Close key='Close' />,
-    'Cry': <Cry key='Cry' />,
-    'Default': <Default key='Default' />,
-    'Dizzy': <Dizzy key='Dizzy' />,
-    'EyeRoll': <EyeRoll key='EyeRoll' />,
-    'Happy': <Happy key='Happy' />,
-    'Hearts': <Hearts key='Hearts' />,
-    'Side': <Side key='Side' />,
-    'Squint': <Squint key='Squint' />,
-    'Surprised': <Surprised key='Surprised' />,
-    'Wink': <Wink key='Wink' />,
-    'WinkWacky': <WinkWacky key='WinkWacky' />
-  }[type];
-};
+const Eyes: React.FC<EyeProps> = ({ type }: EyeProps) => {
+  const Component = lookup(components, type, 'Default')
+  return Component ? <Component /> : null
+}
 
 export default Eyes;

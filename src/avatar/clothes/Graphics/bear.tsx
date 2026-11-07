@@ -1,10 +1,10 @@
-import React from "react";
+import * as React from 'react'
 import { Props } from "./props";
-import { uniqueId } from "lodash";
+import useUniqueId from '../../useUniqueId'
 
 export const Bear: React.FC<Props> = ({ maskID }: Props) => {
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
-  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const mask1 = useUniqueId('react-mask-')
+  const path1 = useUniqueId('react-path-')
 
   return (
     <g

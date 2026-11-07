@@ -1,29 +1,65 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var BlazerShirt_1 = require("./BlazerShirt");
-var BlazerSweater_1 = require("./BlazerSweater");
-var CollarSweater_1 = require("./CollarSweater");
-var GraphicShirt_1 = require("./GraphicShirt");
-var Hoodie_1 = require("./Hoodie");
-var Overall_1 = require("./Overall");
-var ShirtCrewNeck_1 = require("./ShirtCrewNeck");
-var ShirtScoopNeck_1 = require("./ShirtScoopNeck");
-var ShirtVNeck_1 = require("./ShirtVNeck");
-var Clothes = function (_a) {
-    var type = _a.type, color = _a.color, graphicType = _a.graphicType;
-    if (!type)
-        return React.createElement(BlazerShirt_1.default, { key: 'BlazerShirt' });
-    return {
-        'BlazerShirt': React.createElement(BlazerShirt_1.default, { key: 'BlazerShirt' }),
-        'BlazerSweater': React.createElement(BlazerSweater_1.default, { key: 'BlazerSweater' }),
-        'CollarSweater': React.createElement(CollarSweater_1.default, { key: 'CollarSweater', color: color }),
-        'GraphicShirt': React.createElement(GraphicShirt_1.default, { key: 'GraphicShirt', color: color, type: graphicType }),
-        'Hoodie': React.createElement(Hoodie_1.default, { key: 'Hoodie', color: color }),
-        'Overall': React.createElement(Overall_1.default, { key: 'Overall', color: color }),
-        'ShirtCrewNeck': React.createElement(ShirtCrewNeck_1.default, { key: 'ShirtCrewNeck', color: color }),
-        'ShirtScoopNeck': React.createElement(ShirtScoopNeck_1.default, { key: 'ShirtScoopNeck', color: color }),
-        'ShirtVNeck': React.createElement(ShirtVNeck_1.default, { key: 'ShirtVNeck', color: color })
-    }[type];
+const React = __importStar(require("react"));
+const lookup_1 = __importDefault(require("../lookup"));
+const BlazerShirt_1 = __importDefault(require("./BlazerShirt"));
+const BlazerSweater_1 = __importDefault(require("./BlazerSweater"));
+const CollarSweater_1 = __importDefault(require("./CollarSweater"));
+const GraphicShirt_1 = __importDefault(require("./GraphicShirt"));
+const Hoodie_1 = __importDefault(require("./Hoodie"));
+const Overall_1 = __importDefault(require("./Overall"));
+const ShirtCrewNeck_1 = __importDefault(require("./ShirtCrewNeck"));
+const ShirtScoopNeck_1 = __importDefault(require("./ShirtScoopNeck"));
+const ShirtVNeck_1 = __importDefault(require("./ShirtVNeck"));
+const components = {
+    BlazerShirt: BlazerShirt_1.default,
+    BlazerSweater: BlazerSweater_1.default,
+    CollarSweater: CollarSweater_1.default,
+    GraphicShirt: GraphicShirt_1.default,
+    Hoodie: Hoodie_1.default,
+    Overall: Overall_1.default,
+    ShirtCrewNeck: ShirtCrewNeck_1.default,
+    ShirtScoopNeck: ShirtScoopNeck_1.default,
+    ShirtVNeck: ShirtVNeck_1.default,
+};
+const Clothes = ({ type, color, graphicType }) => {
+    const Component = (0, lookup_1.default)(components, type, 'BlazerShirt');
+    return Component ? React.createElement(Component, { color: color, graphicType: graphicType }) : null;
 };
 exports.default = Clothes;

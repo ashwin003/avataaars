@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from './useUniqueId'
 
 import Accessories from './top/accessories'
 import Clothe from './clothes'
@@ -31,16 +31,17 @@ const Avatar: React.FC<AvatarProps> = (
     eyebrowType,
     topType,
     hairColor,
+    hatColor,
     facialHairType,
     facialHairColor,
     accessoriesType
   }: AvatarProps) => {
-  const [path1] = React.useState(() => uniqueId('react-path-'));
-  const [path2] = React.useState(() => uniqueId('react-path-'));
-  const [path3] = React.useState(() => uniqueId('react-path-'));
-  const [mask1] = React.useState(() => uniqueId('react-mask-'));
-  const [mask2] = React.useState(() => uniqueId('react-mask-'));
-  const [mask3] = React.useState(() => uniqueId('react-mask-'));
+  const path1 = useUniqueId('react-path-');
+  const path2 = useUniqueId('react-path-');
+  const path3 = useUniqueId('react-path-');
+  const mask1 = useUniqueId('react-mask-');
+  const mask2 = useUniqueId('react-mask-');
+  const mask3 = useUniqueId('react-mask-');
 
   const circle = avatarStyle === AvatarStyle.Circle;
 
@@ -61,6 +62,7 @@ const Avatar: React.FC<AvatarProps> = (
   const topProps: TopProps = {
     type: topType,
     hairColor,
+    hatColor,
     facialHairType,
     facialHairColor
   };
@@ -132,7 +134,7 @@ const Avatar: React.FC<AvatarProps> = (
               id="Avataaar"
               strokeWidth="1"
               fillRule="evenodd"
-              mask={'url(#' + mask2 + ')'}>
+              mask={circle ? 'url(#' + mask2 + ')' : undefined}>
               <g id="Body" transform="translate(32.000000, 36.000000)">
                 <mask id={mask3} fill="white">
                   <use xlinkHref={'#' + path3} />

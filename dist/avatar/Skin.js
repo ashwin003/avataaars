@@ -1,24 +1,50 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var ColorComponent = function (_a) {
-    var maskID = _a.maskID, color = _a.color;
-    return (React.createElement("g", { id: "Skin/\uD83D\uDC76\uD83C\uDFFD-03-Brown", mask: "url(#".concat(maskID, ")"), fill: color },
+const React = __importStar(require("react"));
+const lookup_1 = __importDefault(require("./lookup"));
+const palettes_1 = require("./palettes");
+const Skin = ({ maskID, color }) => {
+    const fill = (0, lookup_1.default)(palettes_1.skinColors, color, 'Light');
+    if (!fill)
+        return null;
+    return (React.createElement("g", { id: "Skin/\uD83D\uDC76\uD83C\uDFFD-03-Brown", mask: `url(#${maskID})`, fill: fill },
         React.createElement("g", { transform: "translate(0.000000, 0.000000)", id: "Color" },
             React.createElement("rect", { x: "0", y: "0", width: "264", height: "280" }))));
-};
-var Skin = function (_a) {
-    var maskID = _a.maskID, color = _a.color;
-    if (!color)
-        return React.createElement(ColorComponent, { maskID: maskID, color: '#EDB98A', key: 'Light' });
-    return {
-        'Tanned': React.createElement(ColorComponent, { maskID: maskID, color: '#FD9841', key: 'Tanned' }),
-        'Pale': React.createElement(ColorComponent, { maskID: maskID, color: '#FFDBB4', key: 'Pale' }),
-        'Yellow': React.createElement(ColorComponent, { maskID: maskID, color: '#F8D25C', key: 'Yellow' }),
-        'Light': React.createElement(ColorComponent, { maskID: maskID, color: '#EDB98A', key: 'Light' }),
-        'Brown': React.createElement(ColorComponent, { maskID: maskID, color: '#D08B5B', key: 'Brown' }),
-        'DarkBrown': React.createElement(ColorComponent, { maskID: maskID, color: '#AE5D29', key: 'DarkBrown' }),
-        'Black': React.createElement(ColorComponent, { maskID: maskID, color: '#614335', key: 'Black' })
-    }[color];
 };
 exports.default = Skin;

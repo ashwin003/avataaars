@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../useUniqueId'
 
 import HatColor from './HatColor'
 import { TopProps } from './top-props'
 
-const Hijab: React.FC<TopProps> = ({ children }: TopProps) => {
-  const [filter1] = React.useState(() => uniqueId('react-filter-'))
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
-  const [mask2] = React.useState(() => uniqueId('react-mask-'))
-  const [path1] = React.useState(() => uniqueId('react-path-'))
-  const [path2] = React.useState(() => uniqueId('react-path-'))
+const Hijab: React.FC<TopProps> = ({ children, hatColor }: TopProps) => {
+  const filter1 = useUniqueId('react-filter-')
+  const mask1 = useUniqueId('react-mask-')
+  const mask2 = useUniqueId('react-mask-')
+  const path1 = useUniqueId('react-path-')
+  const path2 = useUniqueId('react-path-')
 
   return (
     <g id='Top' strokeWidth='1' fillRule='evenodd'>
@@ -60,7 +60,7 @@ const Hijab: React.FC<TopProps> = ({ children }: TopProps) => {
             fillRule='evenodd'
             xlinkHref={'#' + path2}
           />
-          <HatColor maskID={mask2} defaultColor='Blue03' />
+          <HatColor maskID={mask2} color={hatColor} defaultColor='Blue03' />
           <path
             d='M72.0744416,104.959767 C71.3690172,101.246903 71,97.4161983 71,93.5 C71,59.5344879 98.7583455,32 133,32 C167.241654,32 195,59.5344879 195,93.5 C195,97.4161983 194.630983,101.246903 193.925558,104.959767 C192.341315,72.6827942 165.669927,47 133,47 C100.330073,47 73.6586845,72.6827942 72.0744428,104.959774 Z'
             id='Band'

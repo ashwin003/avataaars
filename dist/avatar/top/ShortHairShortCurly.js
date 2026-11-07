@@ -1,16 +1,51 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_1 = require("lodash");
-var facialHair_1 = require("./facialHair");
-var HairColor_1 = require("./HairColor");
-var ShortHairShortCurly = function (_a) {
-    var children = _a.children, hairColor = _a.hairColor, facialHairColor = _a.facialHairColor, facialHairType = _a.facialHairType;
-    var filter1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-filter-'); })[0];
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("../useUniqueId"));
+const facialHair_1 = __importDefault(require("./facialHair"));
+const HairColor_1 = __importDefault(require("./HairColor"));
+const ShortHairShortCurly = ({ children, hairColor, facialHairColor, facialHairType }) => {
+    const filter1 = (0, useUniqueId_1.default)('react-filter-');
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
+    const mask2 = (0, useUniqueId_1.default)('react-mask-');
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const path2 = (0, useUniqueId_1.default)('react-path-');
     return (React.createElement("g", { id: 'Top', strokeWidth: '1', fillRule: 'evenodd' },
         React.createElement("defs", null,
             React.createElement("rect", { id: path2, x: '0', y: '0', width: '264', height: '280' }),
@@ -24,7 +59,7 @@ var ShortHairShortCurly = function (_a) {
         React.createElement("mask", { id: mask2, fill: 'white' },
             React.createElement("use", { xlinkHref: '#' + path2 })),
         React.createElement("g", { id: 'Mask' }),
-        React.createElement("g", { id: 'Top/Short-Hair/Short-Curly', mask: "url(#".concat(mask2, ")") },
+        React.createElement("g", { id: 'Top/Short-Hair/Short-Curly', mask: `url(#${mask2})` },
             React.createElement("g", { transform: 'translate(-1.000000, 0.000000)' },
                 React.createElement(facialHair_1.default, { type: facialHairType, color: facialHairColor }),
                 React.createElement("mask", { id: mask1, fill: 'white' },

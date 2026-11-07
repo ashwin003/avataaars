@@ -1,19 +1,19 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../useUniqueId'
 
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 import { TopProps } from './top-props'
 
-const Turban: React.FC<TopProps> = ({ children, facialHairColor, facialHairType }: TopProps) => {
+const Turban: React.FC<TopProps> = ({ children, hatColor, facialHairColor, facialHairType }: TopProps) => {
 
-  const [filter1] = React.useState(() => uniqueId('react-filter-'))
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
-  const [mask2] = React.useState(() => uniqueId('react-mask-'))
-  const [mask3] = React.useState(() => uniqueId('react-mask-'))
-  const [path1] = React.useState(() => uniqueId('react-path-'))
-  const [path2] = React.useState(() => uniqueId('react-path-'))
-  const [path3] = React.useState(() => uniqueId('react-path-'))
+  const filter1 = useUniqueId('react-filter-')
+  const mask1 = useUniqueId('react-mask-')
+  const mask2 = useUniqueId('react-mask-')
+  const mask3 = useUniqueId('react-mask-')
+  const path1 = useUniqueId('react-path-')
+  const path2 = useUniqueId('react-path-')
+  const path3 = useUniqueId('react-path-')
 
   return (
     <g id='Top' strokeWidth='1' fillRule='evenodd'>
@@ -84,7 +84,7 @@ const Turban: React.FC<TopProps> = ({ children, facialHairColor, facialHairType 
                 <use xlinkHref={'#' + path3} />
               </mask>
               <use id='Turban-Mask' fill='#124C74' xlinkHref={'#' + path3} />
-              <HatColor maskID={mask3} defaultColor='Blue03' />
+              <HatColor maskID={mask3} color={hatColor} defaultColor='Blue03' />
             </g>
             <path
               d='M48.0110963,96.0123559 C48.3807929,121.112082 58.0438337,136.107963 77.0002187,141 C57.6224465,136.289117 47.9557798,121.632254 48.0002187,97.0294118 C48.0008313,96.6902213 48.0044682,96.351197 48.0110963,96.0123559 Z M152.645822,30.4681115 C153.39011,36.1953086 152.126202,42.8891982 148.000219,50.135763 C136.847465,71.5667661 76.561434,72.0039826 76.3339794,129.679698 C76.1051437,67.7612631 136.805324,67.3799133 148.000219,44.5441176 C150.669864,39.5668152 152.141299,34.8351296 152.645822,30.4681115 Z'

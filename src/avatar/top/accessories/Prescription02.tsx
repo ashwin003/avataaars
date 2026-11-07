@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../../useUniqueId'
 
 const Prescription02: React.FC = () => {
 
-  const [filter1] = React.useState(() => uniqueId('react-filter-'))
+  const filter1 = useUniqueId('react-filter-')
 
   return (
     <g
