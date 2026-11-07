@@ -1,16 +1,51 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_1 = require("lodash");
-var facialHair_1 = require("./facialHair");
-var HatColor_1 = require("./HatColor");
-var WinterHat2 = function (_a) {
-    var children = _a.children, facialHairColor = _a.facialHairColor, facialHairType = _a.facialHairType;
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path3 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("../useUniqueId"));
+const facialHair_1 = __importDefault(require("./facialHair"));
+const HatColor_1 = __importDefault(require("./HatColor"));
+const WinterHat2 = ({ children, hatColor, facialHairColor, facialHairType }) => {
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
+    const mask2 = (0, useUniqueId_1.default)('react-mask-');
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const path2 = (0, useUniqueId_1.default)('react-path-');
+    const path3 = (0, useUniqueId_1.default)('react-path-');
     return (React.createElement("g", { id: 'Top' },
         React.createElement("defs", null,
             React.createElement("rect", { id: path3, x: '0', y: '0', width: '264', height: '280' }),
@@ -31,8 +66,8 @@ var WinterHat2 = function (_a) {
                 React.createElement("mask", { id: mask2, fill: 'white' },
                     React.createElement("use", { xlinkHref: '#' + path1 })),
                 React.createElement("use", { id: 'Combined-Shape', fill: '#F4F4F4', xlinkHref: '#' + path1 }),
-                React.createElement(HatColor_1.default, { maskID: mask2, defaultColor: 'Blue01' }),
-                React.createElement("rect", { id: 'color-dark', fillOpacity: '0.2', fill: '#000000', x: '-1', y: '21', width: '146', height: '46', mask: "url(#".concat(mask2, ")") }),
+                React.createElement(HatColor_1.default, { maskID: mask2, color: hatColor, defaultColor: 'Blue01' }),
+                React.createElement("rect", { id: 'color-dark', fillOpacity: '0.2', fill: '#000000', x: '-1', y: '21', width: '146', height: '46', mask: `url(#${mask2})` }),
                 React.createElement("g", { id: 'light-triangles', transform: 'translate(29.000000, 32.000000)', fill: '#FFFFFF', fillOpacity: '0.5' },
                     React.createElement("polygon", { id: 'Triangle', transform: 'translate(12.500000, 9.000000) rotate(180.000000) translate(-12.500000, -9.000000) ', points: '12.5 0 25 18 0 18' }),
                     React.createElement("polygon", { id: 'Triangle', transform: 'translate(43.500000, 9.000000) rotate(180.000000) translate(-43.500000, -9.000000) ', points: '43.5 0 56 18 31 18' }),

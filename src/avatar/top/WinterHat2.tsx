@@ -1,16 +1,16 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../useUniqueId'
 
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 import { TopProps } from './top-props'
 
-const WinterHat2: React.FC<TopProps> = ({ children, facialHairColor, facialHairType }: TopProps) => {
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
-  const [mask2] = React.useState(() => uniqueId('react-mask-'))
-  const [path1] = React.useState(() => uniqueId('react-path-'))
-  const [path2] = React.useState(() => uniqueId('react-path-'))
-  const [path3] = React.useState(() => uniqueId('react-path-'))
+const WinterHat2: React.FC<TopProps> = ({ children, hatColor, facialHairColor, facialHairType }: TopProps) => {
+  const mask1 = useUniqueId('react-mask-')
+  const mask2 = useUniqueId('react-mask-')
+  const path1 = useUniqueId('react-path-')
+  const path2 = useUniqueId('react-path-')
+  const path3 = useUniqueId('react-path-')
 
   return (
     <g id='Top'>
@@ -60,7 +60,7 @@ const WinterHat2: React.FC<TopProps> = ({ children, facialHairColor, facialHairT
             <use xlinkHref={'#' + path1} />
           </mask>
           <use id='Combined-Shape' fill='#F4F4F4' xlinkHref={'#' + path1} />
-          <HatColor maskID={mask2} defaultColor='Blue01' />
+          <HatColor maskID={mask2} color={hatColor} defaultColor='Blue01' />
           <rect
             id='color-dark'
             fillOpacity='0.2'

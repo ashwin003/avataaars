@@ -1,3 +1,2 @@
-import * as React from 'react';
-import { PieceProps } from './avatar/piece';
-export declare const Piece: React.FC<PieceProps>;
+export { default as Piece } from './avatar/piece';
+export type { PieceProps } from './avatar/piece';

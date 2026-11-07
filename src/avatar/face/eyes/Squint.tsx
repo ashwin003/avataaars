@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../../useUniqueId'
 
 const Squint: React.FC = () => {
 
-  const [path1] = React.useState(() => uniqueId('react-path-'))
-  const [path2] = React.useState(() => uniqueId('react-path-'))
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
-  const [mask2] = React.useState(() => uniqueId('react-mask-'))
+  const path1 = useUniqueId('react-path-')
+  const path2 = useUniqueId('react-path-')
+  const mask1 = useUniqueId('react-mask-')
+  const mask2 = useUniqueId('react-mask-')
 
   return (
     <g id='Eyes/Squint-😊' transform='translate(0.000000, 8.000000)'>

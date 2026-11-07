@@ -1,21 +1,56 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_1 = require("lodash");
-var facialHair_1 = require("./facialHair");
-var HatColor_1 = require("./HatColor");
-var WinterHat4 = function (_a) {
-    var children = _a.children, facialHairColor = _a.facialHairColor, facialHairType = _a.facialHairType;
-    var filter1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-filter-'); })[0];
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask3 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask4 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path3 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path4 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path5 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("../useUniqueId"));
+const facialHair_1 = __importDefault(require("./facialHair"));
+const HatColor_1 = __importDefault(require("./HatColor"));
+const WinterHat4 = ({ children, hatColor, facialHairColor, facialHairType }) => {
+    const filter1 = (0, useUniqueId_1.default)('react-filter-');
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
+    const mask2 = (0, useUniqueId_1.default)('react-mask-');
+    const mask3 = (0, useUniqueId_1.default)('react-mask-');
+    const mask4 = (0, useUniqueId_1.default)('react-mask-');
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const path2 = (0, useUniqueId_1.default)('react-path-');
+    const path3 = (0, useUniqueId_1.default)('react-path-');
+    const path4 = (0, useUniqueId_1.default)('react-path-');
+    const path5 = (0, useUniqueId_1.default)('react-path-');
     return (React.createElement("g", { id: 'Top' },
         React.createElement("defs", null,
             React.createElement("rect", { id: path5, x: '0', y: '0', width: '264', height: '280' }),
@@ -34,7 +69,7 @@ var WinterHat4 = function (_a) {
                 React.createElement("mask", { id: mask2, fill: 'white' },
                     React.createElement("use", { xlinkHref: '#' + path1 })),
                 React.createElement("use", { id: 'hat-mask', fill: '#D8D8D8', xlinkHref: '#' + path1 }),
-                React.createElement(HatColor_1.default, { maskID: mask2, defaultColor: 'Red' }),
+                React.createElement(HatColor_1.default, { maskID: mask2, color: hatColor, defaultColor: 'Red' }),
                 React.createElement("mask", { id: mask3, fill: 'white' },
                     React.createElement("use", { xlinkHref: '#' + path2 })),
                 React.createElement("use", { id: 'shadow', fillOpacity: '0.24', fill: '#000000', xlinkHref: '#' + path2 }),
@@ -42,7 +77,7 @@ var WinterHat4 = function (_a) {
                     React.createElement("use", { xlinkHref: '#' + path3 })),
                 React.createElement("use", { id: 'light', fillOpacity: '0.300000012', fill: '#FFFFFF', xlinkHref: '#' + path3 })),
             React.createElement("g", { id: 'hat-front' },
-                React.createElement("use", { fill: 'black', fillOpacity: '1', filter: "url(#".concat(path4, ")"), xlinkHref: '#' + path4 }),
+                React.createElement("use", { fill: 'black', fillOpacity: '1', filter: `url(#${path4})`, xlinkHref: '#' + path4 }),
                 React.createElement("use", { fill: '#F4F4F4', fillRule: 'evenodd', xlinkHref: '#' + path4 })),
             React.createElement(facialHair_1.default, { type: facialHairType, color: facialHairColor }),
             children)));

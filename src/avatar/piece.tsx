@@ -10,22 +10,12 @@ import Eyes from './face/eyes'
 import Eyebrows from './face/eyebrow'
 import Mouth from './face/mouth'
 import Nose from './face/nose'
-import Skin, { SkinProps } from './Skin'
+import Skin from './Skin'
 import { AvatarProps } from '../AvatarProps'
-import { ClotheProps } from './clothes/type'
-import { AccessoriesProps } from './top/accessories/type'
-import { TopProps } from './top/top-props'
 
-export enum AvatarStyle {
-  Circle = 'Circle',
-  Transparent = 'Transparent',
-}
-
-export interface PieceProps extends AvatarProps {
-  pieceSize?: string
-  pieceType?: string
-  style?: React.CSSProperties
-  viewBox?: string
+export interface PieceProps extends Omit<AvatarProps, 'avatarStyle'> {
+  /** Accepted for API compatibility with Avatar; pieces have no style. */
+  avatarStyle?: string
 }
 
 const PieceComponent: React.FC<PieceProps> = ({
@@ -39,41 +29,26 @@ const PieceComponent: React.FC<PieceProps> = ({
   eyebrowType,
   topType,
   hairColor,
+  hatColor,
   facialHairType,
   facialHairColor,
   accessoriesType,
   viewBox,
-  pieceType
+  pieceType,
+  pieceSize
 }: PieceProps) => {
-  const skinProps: SkinProps = {
-    color: skinColor,
-    maskID: '5678'
-  };
-  const clotheProps: ClotheProps = {
-    type: clotheType,
-    color: clotheColor,
-    graphicType
-  };
-  const topProps: TopProps = {
-    type: topType,
-    hairColor,
-    facialHairType,
-    facialHairColor
-  };
-  const accessoriesProps: AccessoriesProps = {
-    type: accessoriesType
-  };
-  return <svg style={style} width='100%' height='100%' viewBox={viewBox || "0 0 264 280"} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-    {pieceType === 'top' && <Top {...topProps} />}
-    {pieceType === 'clothe' && <Clothe {...clotheProps} />}
-    {pieceType === 'graphics' && <Graphics maskID="1234" />}
-    {(pieceType === 'accessories' || pieceType === 'accesories') && <Accessories {...accessoriesProps} />}
+  const size = pieceSize ? `${pieceSize}px` : '100%'
+  return <svg style={style} width={size} height={size} viewBox={viewBox || "0 0 264 280"} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    {pieceType === 'top' && <Top type={topType} hairColor={hairColor} hatColor={hatColor} facialHairType={facialHairType} facialHairColor={facialHairColor} />}
+    {pieceType === 'clothe' && <Clothe type={clotheType} color={clotheColor} graphicType={graphicType} />}
+    {pieceType === 'graphics' && <Graphics maskID="1234" type={graphicType} />}
+    {(pieceType === 'accessories' || pieceType === 'accesories') && <Accessories type={accessoriesType} />}
     {pieceType === 'facialHair' && <FacialHair type={facialHairType} color={facialHairColor} />}
     {pieceType === 'eyes' && <Eyes type={eyeType} />}
     {pieceType === 'eyebrows' && <Eyebrows type={eyebrowType} />}
     {pieceType === 'mouth' && <Mouth type={mouthType} />}
     {pieceType === 'nose' && <Nose />}
-    {pieceType === 'skin' && <Skin {...skinProps} />}
+    {pieceType === 'skin' && <Skin color={skinColor} maskID="5678" />}
   </svg>;
 };
 

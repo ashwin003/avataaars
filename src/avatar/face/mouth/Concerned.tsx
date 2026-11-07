@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../../useUniqueId'
 
 const Concerned: React.FC = () => {
 
-  const [path1] = React.useState(() => uniqueId('react-path-'))
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
+  const path1 = useUniqueId('react-path-')
+  const mask1 = useUniqueId('react-mask-')
 
   return (
     <g id='Mouth/Concerned' transform='translate(2.000000, 52.000000)'>

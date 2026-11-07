@@ -1,59 +1,84 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
     };
-    return __assign.apply(this, arguments);
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AvatarStyle = void 0;
-var React = require("react");
-var lodash_1 = require("lodash");
-var accessories_1 = require("./top/accessories");
-var clothes_1 = require("./clothes");
-var face_1 = require("./face");
-var Skin_1 = require("./Skin");
-var top_1 = require("./top");
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("./useUniqueId"));
+const accessories_1 = __importDefault(require("./top/accessories"));
+const clothes_1 = __importDefault(require("./clothes"));
+const face_1 = __importDefault(require("./face"));
+const Skin_1 = __importDefault(require("./Skin"));
+const top_1 = __importDefault(require("./top"));
 var AvatarStyle;
 (function (AvatarStyle) {
     AvatarStyle["Circle"] = "Circle";
     AvatarStyle["Transparent"] = "Transparent";
 })(AvatarStyle || (exports.AvatarStyle = AvatarStyle = {}));
-var Avatar = function (_a) {
-    var avatarStyle = _a.avatarStyle, style = _a.style, className = _a.className, skinColor = _a.skinColor, clotheType = _a.clotheType, clotheColor = _a.clotheColor, graphicType = _a.graphicType, mouthType = _a.mouthType, eyeType = _a.eyeType, eyebrowType = _a.eyebrowType, topType = _a.topType, hairColor = _a.hairColor, facialHairType = _a.facialHairType, facialHairColor = _a.facialHairColor, accessoriesType = _a.accessoriesType;
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path3 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask3 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var circle = avatarStyle === AvatarStyle.Circle;
-    var skinProps = {
+const Avatar = ({ avatarStyle, style, className, skinColor, clotheType, clotheColor, graphicType, mouthType, eyeType, eyebrowType, topType, hairColor, hatColor, facialHairType, facialHairColor, accessoriesType }) => {
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const path2 = (0, useUniqueId_1.default)('react-path-');
+    const path3 = (0, useUniqueId_1.default)('react-path-');
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
+    const mask2 = (0, useUniqueId_1.default)('react-mask-');
+    const mask3 = (0, useUniqueId_1.default)('react-mask-');
+    const circle = avatarStyle === AvatarStyle.Circle;
+    const skinProps = {
         color: skinColor,
         maskID: mask3
     };
-    var clotheProps = {
+    const clotheProps = {
         type: clotheType,
         color: clotheColor,
-        graphicType: graphicType
+        graphicType
     };
-    var faceProps = {
-        mouthType: mouthType,
-        eyeType: eyeType,
-        eyebrowType: eyebrowType,
+    const faceProps = {
+        mouthType,
+        eyeType,
+        eyebrowType,
     };
-    var topProps = {
+    const topProps = {
         type: topType,
-        hairColor: hairColor,
-        facialHairType: facialHairType,
-        facialHairColor: facialHairColor
+        hairColor,
+        hatColor,
+        facialHairType,
+        facialHairColor
     };
-    var accessoriesProps = {
+    const accessoriesProps = {
         type: accessoriesType
     };
     return (React.createElement("svg", { style: style, className: className, width: "100%", height: "100%", viewBox: "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
@@ -74,16 +99,16 @@ var Avatar = function (_a) {
                     circle ? (React.createElement("mask", { id: mask2, fill: "white" },
                         React.createElement("use", { xlinkHref: '#' + path2 }))) : null,
                     React.createElement("g", { id: "Mask" }),
-                    React.createElement("g", { id: "Avataaar", strokeWidth: "1", fillRule: "evenodd", mask: 'url(#' + mask2 + ')' },
+                    React.createElement("g", { id: "Avataaar", strokeWidth: "1", fillRule: "evenodd", mask: circle ? 'url(#' + mask2 + ')' : undefined },
                         React.createElement("g", { id: "Body", transform: "translate(32.000000, 36.000000)" },
                             React.createElement("mask", { id: mask3, fill: "white" },
                                 React.createElement("use", { xlinkHref: '#' + path3 })),
                             React.createElement("use", { fill: "#D0C6AC", xlinkHref: '#' + path3 }),
-                            React.createElement(Skin_1.default, __assign({}, skinProps)),
+                            React.createElement(Skin_1.default, Object.assign({}, skinProps)),
                             React.createElement("path", { d: "M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z", id: "Neck-Shadow", fillOpacity: "0.100000001", fill: "#000000", mask: 'url(#' + mask3 + ')' })),
-                        React.createElement(clothes_1.default, __assign({}, clotheProps)),
-                        React.createElement(face_1.default, __assign({}, faceProps)),
-                        React.createElement(top_1.default, __assign({}, topProps),
-                            React.createElement(accessories_1.default, __assign({}, accessoriesProps)))))))));
+                        React.createElement(clothes_1.default, Object.assign({}, clotheProps)),
+                        React.createElement(face_1.default, Object.assign({}, faceProps)),
+                        React.createElement(top_1.default, Object.assign({}, topProps),
+                            React.createElement(accessories_1.default, Object.assign({}, accessoriesProps)))))))));
 };
 exports.default = Avatar;

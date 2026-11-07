@@ -1,31 +1,49 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var ColorComponent = function (_a) {
-    var maskID = _a.maskID, color = _a.color;
-    return (React.createElement("g", { id: "Clothes", mask: "url(#".concat(maskID, ")"), fillRule: 'evenodd', fill: color },
-        React.createElement("rect", { id: '\uD83D\uDD8DColor', x: '0', y: '0', width: '264', height: '110' })));
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var Colors = function (_a) {
-    var maskID = _a.maskID, color = _a.color;
-    if (!color)
-        return React.createElement(ColorComponent, { maskID: maskID, key: 'Gray01', color: '#E6E6E6' });
-    return {
-        'Black': React.createElement(ColorComponent, { maskID: maskID, key: 'Black', color: '#262E33' }),
-        'Blue01': React.createElement(ColorComponent, { maskID: maskID, key: 'Blue01', color: '#65C9FF' }),
-        'Blue02': React.createElement(ColorComponent, { maskID: maskID, key: 'Blue02', color: '#5199E4' }),
-        'Blue03': React.createElement(ColorComponent, { maskID: maskID, key: 'Blue03', color: '#25557C' }),
-        'Gray01': React.createElement(ColorComponent, { maskID: maskID, key: 'Gray01', color: '#E6E6E6' }),
-        'Gray02': React.createElement(ColorComponent, { maskID: maskID, key: 'Gray02', color: '#929598' }),
-        'Heather': React.createElement(ColorComponent, { maskID: maskID, key: 'Heather', color: '#3C4F5C' }),
-        'PastelBlue': React.createElement(ColorComponent, { maskID: maskID, key: 'PastelBlue', color: '#B1E2FF' }),
-        'PastelGreen': React.createElement(ColorComponent, { maskID: maskID, key: 'PastelGreen', color: '#A7FFC4' }),
-        'PastelOrange': React.createElement(ColorComponent, { maskID: maskID, key: 'PastelOrange', color: '#FFDEB5' }),
-        'PastelRed': React.createElement(ColorComponent, { maskID: maskID, key: 'PastelRed', color: '#FFAFB9' }),
-        'PastelYellow': React.createElement(ColorComponent, { maskID: maskID, key: 'PastelYellow', color: '#FFFFB1' }),
-        'Pink': React.createElement(ColorComponent, { maskID: maskID, key: 'Pink', color: '#FF488E' }),
-        'Red': React.createElement(ColorComponent, { maskID: maskID, key: 'Red', color: '#FF5C5C' }),
-        'White': React.createElement(ColorComponent, { maskID: maskID, key: 'White', color: '#FFFFFF' })
-    }[color];
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __importStar(require("react"));
+const lookup_1 = __importDefault(require("../lookup"));
+const palettes_1 = require("../palettes");
+const Colors = ({ maskID, color }) => {
+    const fill = (0, lookup_1.default)(palettes_1.fabricColors, color, 'Gray01');
+    if (!fill)
+        return null;
+    return (React.createElement("g", { id: "Clothes", mask: `url(#${maskID})`, fillRule: 'evenodd', fill: fill },
+        React.createElement("rect", { id: '\uD83D\uDD8DColor', x: '0', y: '0', width: '264', height: '110' })));
 };
 exports.default = Colors;

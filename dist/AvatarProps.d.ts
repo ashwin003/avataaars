@@ -6,6 +6,7 @@ export interface AvatarProps {
     topType?: string;
     accessoriesType?: string;
     hairColor?: string;
+    hatColor?: string;
     facialHairType?: string;
     facialHairColor?: string;
     clotheType?: string;

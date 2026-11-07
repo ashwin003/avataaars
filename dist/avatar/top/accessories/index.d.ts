@@ -1,4 +1,4 @@
 import * as React from 'react';
 import { AccessoriesProps } from './type';
-declare const Accessories: ({ type }: AccessoriesProps) => React.JSX.Element | undefined;
+declare const Accessories: React.FC<AccessoriesProps>;
 export default Accessories;

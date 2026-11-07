@@ -1,17 +1,53 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_1 = require("lodash");
-var BlazerSweater = function () {
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("../useUniqueId"));
+const BlazerSweater = () => {
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
     return (React.createElement("g", { id: 'Clothing/Blazer-+-Sweater', transform: 'translate(0.000000, 170.000000)' },
         React.createElement("defs", null,
             React.createElement("path", { d: 'M105.192402,29.0517235 L104,29.0517235 L104,29.0517235 C64.235498,29.0517235 32,61.2872215 32,101.051724 L32,110 L232,110 L232,101.051724 C232,61.2872215 199.764502,29.0517235 160,29.0517235 L160,29.0517235 L158.807598,29.0517235 C158.934638,30.0353144 159,31.0364513 159,32.0517235 C159,45.8588423 146.911688,57.0517235 132,57.0517235 C117.088312,57.0517235 105,45.8588423 105,32.0517235 C105,31.0364513 105.065362,30.0353144 105.192402,29.0517235 Z', id: path1 })),
         React.createElement("mask", { id: mask1, fill: 'white' },
             React.createElement("use", { xlinkHref: '#' + path1 })),
         React.createElement("use", { id: 'Clothes', fill: '#E6E6E6', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-        React.createElement("g", { id: 'Color/Palette/Black', mask: "url(#".concat(mask1, ")"), fillRule: 'evenodd', fill: '#262E33' },
+        React.createElement("g", { id: 'Color/Palette/Black', mask: `url(#${mask1})`, fillRule: 'evenodd', fill: '#262E33' },
             React.createElement("rect", { id: '\uD83D\uDD8DColor', x: '0', y: '0', width: '264', height: '110' })),
         React.createElement("g", { id: 'Blazer', strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(32.000000, 28.000000)' },
             React.createElement("path", { d: 'M68.784807,1.12222847 C30.512317,2.80409739 1.24427139e-14,34.3646437 0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z', id: 'Saco', fill: '#3A4C5A' }),

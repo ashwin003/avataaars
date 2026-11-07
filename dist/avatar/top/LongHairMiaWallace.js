@@ -1,15 +1,50 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_1 = require("lodash");
-var facialHair_1 = require("./facialHair");
-var HairColor_1 = require("./HairColor");
-var LongHairMiaWallace = function (_a) {
-    var children = _a.children, hairColor = _a.hairColor, facialHairColor = _a.facialHairColor, facialHairType = _a.facialHairType;
-    var mask1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var mask2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-mask-'); })[0];
-    var path1 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
-    var path2 = React.useState(function () { return (0, lodash_1.uniqueId)('react-path-'); })[0];
+const React = __importStar(require("react"));
+const useUniqueId_1 = __importDefault(require("../useUniqueId"));
+const facialHair_1 = __importDefault(require("./facialHair"));
+const HairColor_1 = __importDefault(require("./HairColor"));
+const LongHairMiaWallace = ({ children, hairColor, facialHairColor, facialHairType }) => {
+    const mask1 = (0, useUniqueId_1.default)('react-mask-');
+    const mask2 = (0, useUniqueId_1.default)('react-mask-');
+    const path1 = (0, useUniqueId_1.default)('react-path-');
+    const path2 = (0, useUniqueId_1.default)('react-path-');
     return (React.createElement("g", { id: 'Top', strokeWidth: '1', fillRule: 'evenodd' },
         React.createElement("defs", null,
             React.createElement("rect", { id: path1, x: '0', y: '0', width: '264', height: '280' }),
@@ -17,7 +52,7 @@ var LongHairMiaWallace = function (_a) {
         React.createElement("mask", { id: mask1, fill: 'white' },
             React.createElement("use", { xlinkHref: '#' + path1 })),
         React.createElement("g", { id: 'Mask' }),
-        React.createElement("g", { id: 'Top/Long-Hair/Mia-Wallace', mask: "url(#".concat(mask1, ")") },
+        React.createElement("g", { id: 'Top/Long-Hair/Mia-Wallace', mask: `url(#${mask1})` },
             React.createElement("g", { transform: 'translate(-1.000000, 0.000000)' },
                 React.createElement("path", { d: 'M69.0330562,76.212888 C81.9708809,43.1292208 95.6458945,26.5873873 110.058097,26.5873873 C110.596882,26.5873873 139.311316,26.3494141 158.112657,26.226792 C178.767149,35.5853581 193,55.3036503 193,78.114622 L193,93 L110.058097,93 L107.252975,69.820435 L103.373552,93 L69,93 L69,78.114622 C69,77.478246 69.0110772,76.844277 69.0330621,76.2128728 L69.0330562,76.212888 Z', id: 'Shadow', fillOpacity: '0.16', fill: '#000000', fillRule: 'evenodd' }),
                 React.createElement("g", { id: 'Hair', strokeWidth: '1', fill: 'none', fillRule: 'evenodd', transform: 'translate(40.000000, 19.000000)' },

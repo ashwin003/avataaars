@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
+import useUniqueId from '../useUniqueId'
 
 import FacialHair from './facialHair'
 import { TopProps } from './top-props'
 
 const Eyepatch: React.FC<TopProps> = ({ facialHairType, facialHairColor }: TopProps) => {
-  const [mask1] = React.useState(() => uniqueId('react-mask-'))
-  const [path1] = React.useState(() => uniqueId('react-path-'))
+  const mask1 = useUniqueId('react-mask-')
+  const path1 = useUniqueId('react-path-')
 
   return (
     <g id='Top' strokeWidth='1' fillRule='evenodd'>
